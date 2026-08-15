@@ -36,21 +36,21 @@
     <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
 
     <main class="docs__main" id="main">
-      <h1>Layouts & Daten</h1>
-      <p class="bit-lead">
+      <h1 data-i18n-html="lyt.1">Layouts & Daten</h1>
+      <p class="bit-lead" data-i18n-html="lyt.2">
         Anwendungsgeruest, mehrstufige Abläufe und die Darstellung
         echter Daten.
       </p>
 
-      <p class="bit-text-xs bit-muted">
+      <p class="bit-text-xs bit-muted" data-i18n-html="lyt.3">
         Diese Seite braucht das Zusatzmodul:
         <code>&lt;script src="bitstrap-ui.js" defer&gt;&lt;/script&gt;</code>
       </p>
 
       <!-- ============ APP-SHELL ============ -->
       <section id="app-shell">
-        <h2>App-Shell mit Sidebar</h2>
-        <p>
+        <h2 data-i18n-html="lyt.4">App-Shell mit Sidebar</h2>
+        <p data-i18n-html="lyt.5">
           Kopfzeile, feste Seitenleiste, scrollender Inhalt. Ab 1024px
           liegt die Leiste daneben, darunter verschwindet sie - dort
           gehoert die Navigation in einen Drawer.
@@ -102,7 +102,7 @@
       <!-- ============ DRAWER ============ -->
       <section id="drawer">
         <h2>Drawer</h2>
-        <p>
+        <p data-i18n-html="lyt.6">
           Faehrt von einer Bildschirmkante ein. Anders als das Modal
           bleibt der Inhalt dahinter sichtbar.
         </p>
@@ -129,7 +129,7 @@
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="lyt.7">
           Varianten: <code>.bit-drawer--right</code>,
           <code>.bit-drawer--bottom</code>. Escape und Klick auf den
           Hintergrund schliessen; der Fokus bleibt im Panel gefangen und
@@ -140,7 +140,7 @@
       <!-- ============ POPOVER ============ -->
       <section id="popover">
         <h2>Popover</h2>
-        <p>
+        <p data-i18n-html="lyt.8">
           Wie ein Tooltip, aber per Klick und mit beliebigem Inhalt. Die
           Position wird berechnet, damit der Kasten am Bildschirmrand
           nicht abgeschnitten wird.
@@ -167,7 +167,7 @@
       <!-- ============ STEPPER ============ -->
       <section id="stepper">
         <h2>Stepper</h2>
-        <p>Mehrstufige Formulare mit Fortschrittsanzeige und Pruefung je Schritt.</p>
+        <p data-i18n-html="lyt.9">Mehrstufige Formulare mit Fortschrittsanzeige und Pruefung je Schritt.</p>
 
         <div class="doc-demo">
           <div class="doc-demo__preview">
@@ -204,7 +204,7 @@
           </div>
         </div>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="lyt.10">
           Ein Panel mit <code>data-bit-validate</code> laesst den Schritt
           erst weiterspringen, wenn seine Felder gueltig sind.
         </p>
@@ -213,7 +213,7 @@
       <!-- ============ CAROUSEL ============ -->
       <section id="carousel">
         <h2>Carousel</h2>
-        <p>
+        <p data-i18n-html="lyt.11">
           Basiert auf Scroll-Snap statt auf JavaScript-Transformationen:
           funktioniert auch ohne das Modul, laesst sich wischen und
           bleibt mit der Tastatur scrollbar.
@@ -249,8 +249,8 @@
 
       <!-- ============ DATENTABELLE ============ -->
       <section id="datatable">
-        <h2>Sortierbare Tabelle</h2>
-        <p>Klick auf einen Spaltenkopf sortiert; das Feld darueber filtert.</p>
+        <h2 data-i18n-html="lyt.12">Sortierbare Tabelle</h2>
+        <p data-i18n-html="lyt.13">Klick auf einen Spaltenkopf sortiert; das Feld darueber filtert.</p>
 
         <div class="doc-demo">
           <div class="doc-demo__preview">
@@ -286,7 +286,7 @@
           </div>
         </div>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="lyt.14">
           <code>data-bit-sort</code> nimmt <code>text</code>,
           <code>number</code> oder <code>date</code>. Mit
           <code>data-bit-value</code> an einer Zelle sortiert man nach
@@ -297,7 +297,7 @@
 
       <!-- ============ KENNZAHLEN ============ -->
       <section id="kennzahlen">
-        <h2>Kennzahlen & Meter</h2>
+        <h2 data-i18n-html="lyt.15">Kennzahlen & Meter</h2>
         <div class="doc-demo">
           <div class="doc-demo__preview">
             <div class="bit-tiles bit-mb-4" style="--bit-tile-min:180px">
@@ -332,7 +332,7 @@
           </div>
         </div>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="lyt.16">
           <code>data-bit-count</code> zaehlt den Wert beim Laden hoch.
           Programmatisch: <code>Bitstrap.countTo(el, 8420)</code>.
         </p>
@@ -340,7 +340,7 @@
 
       <!-- ============ ZEITLEISTE & BAUM ============ -->
       <section id="timeline">
-        <h2>Zeitleiste & Baumansicht</h2>
+        <h2 data-i18n-html="lyt.17">Zeitleiste & Baumansicht</h2>
         <div class="doc-demo">
           <div class="doc-demo__preview">
             <div class="bit-row">
@@ -392,7 +392,7 @@
 
       <!-- ============ SKELETON ============ -->
       <section id="skeleton">
-        <h2>Skeleton & Leerzustand</h2>
+        <h2 data-i18n-html="lyt.18">Skeleton & Leerzustand</h2>
         <div class="doc-demo">
           <div class="doc-demo__preview">
             <div class="bit-row">
@@ -481,6 +481,7 @@
 <script src="../vendor/bitstrap-locales.js"></script>
 <script src="../vendor/bitstrap-ui.js"></script>
 <script src="../vendor/bitstrap-forms.js"></script>
+<script src="../assets/i18n-docs.js"></script>
 <script src="../assets/i18n.js"></script>
 <script src="../assets/docs.js"></script>
 </body>

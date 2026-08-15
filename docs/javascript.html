@@ -37,14 +37,14 @@
 
     <main class="docs__main" id="main">
       <h1>JavaScript</h1>
-      <p class="bit-lead">
+      <p class="bit-lead" data-i18n-html="js.1">
         Rund 13 KB, keine Abhaengigkeiten. Alles laeuft ueber Attribute -
         JavaScript schreiben musst du nur, wenn du willst.
       </p>
 
       <section id="attribute">
-        <h2>Steuerung per Attribut</h2>
-        <p>
+        <h2 data-i18n-html="js.2">Steuerung per Attribut</h2>
+        <p data-i18n-html="js.3">
           Die Ereignisse haengen an <code>document</code>. Elemente, die du
           spaeter nachlaedst, funktionieren daher ohne erneutes
           <code>init()</code>.
@@ -54,18 +54,17 @@
           <table class="bit-table bit-table--striped var-table">
             <thead><tr><th>Attribut</th><th>Wirkung</th></tr></thead>
             <tbody>
-              <tr><td><code>data-bit-toggle="modal"</code></td><td>oeffnet das Ziel</td></tr>
-              <tr><td><code>data-bit-toggle="dropdown"</code></td><td>klappt das Menue auf</td></tr>
-              <tr><td><code>data-bit-toggle="tab"</code></td><td>wechselt den Reiter</td></tr>
-              <tr><td><code>data-bit-toggle="accordion"</code></td><td>klappt den Abschnitt auf</td></tr>
-              <tr><td><code>data-bit-toggle="navbar"</code></td><td>mobiles Menue</td></tr>
-              <tr><td><code>data-bit-toggle="theme"</code></td><td>hell/dunkel umschalten</td></tr>
-              <tr><td><code>data-bit-target="#id"</code></td><td>Ziel des Triggers</td></tr>
-              <tr><td><code>data-bit-dismiss="modal|alert|toast"</code></td><td>schliesst das Umgebende</td></tr>
-              <tr><td><code></code></td><td>Klang beim Klick</td></tr>
-              <tr><td><code>data-bit-typewriter</code></td><td>Text erscheint zeichenweise</td></tr>
-              <tr><td><code>data-bit-single</code></td><td>Accordion: nur eines offen</td></tr>
-              <tr><td><code>data-bit-static</code></td><td>Modal: nicht per Escape/Klick schliessbar</td></tr>
+              <tr><td><code>data-bit-toggle="modal"</code></td><td data-i18n-html="js.4">oeffnet das Ziel</td></tr>
+              <tr><td><code>data-bit-toggle="dropdown"</code></td><td data-i18n-html="js.5">klappt das Menue auf</td></tr>
+              <tr><td><code>data-bit-toggle="tab"</code></td><td data-i18n-html="js.6">wechselt den Reiter</td></tr>
+              <tr><td><code>data-bit-toggle="accordion"</code></td><td data-i18n-html="js.7">klappt den Abschnitt auf</td></tr>
+              <tr><td><code>data-bit-toggle="navbar"</code></td><td data-i18n-html="js.8">mobiles Menue</td></tr>
+              <tr><td><code>data-bit-toggle="theme"</code></td><td data-i18n-html="js.9">hell/dunkel umschalten</td></tr>
+              <tr><td><code>data-bit-target="#id"</code></td><td data-i18n-html="js.10">Ziel des Triggers</td></tr>
+              <tr><td><code>data-bit-dismiss="modal|alert|toast"</code></td><td data-i18n-html="js.11">schliesst das Umgebende</td></tr>
+              <tr><td><code>data-bit-typewriter</code></td><td data-i18n-html="js.13">Text erscheint zeichenweise</td></tr>
+              <tr><td><code>data-bit-single</code></td><td data-i18n-html="js.14">Accordion: nur eines offen</td></tr>
+              <tr><td><code>data-bit-static</code></td><td data-i18n-html="js.15">Modal: nicht per Escape/Klick schliessbar</td></tr>
             </tbody>
           </table>
         </div>
@@ -74,20 +73,20 @@
       <section id="modal-api">
         <h2>Modal</h2>
         <pre><code>&lt;button data-bit-toggle="modal" data-bit-target="#mein-modal"&gt;Oeffnen&lt;/button&gt;</code></pre>
-        <p>Oder aus dem Code heraus:</p>
+        <p data-i18n-html="js.16">Oder aus dem Code heraus:</p>
         <pre><code>const m = Bitstrap.modal("#mein-modal");
 m.show();
 m.hide();
 m.toggle();</code></pre>
 
-        <p>Escape schliesst, ein Klick auf den Hintergrund ebenfalls, der Fokus wandert in den Dialog.</p>
+        <p data-i18n-html="js.17">Escape schliesst, ein Klick auf den Hintergrund ebenfalls, der Fokus wandert in den Dialog.</p>
 
         <h3>Ereignisse</h3>
         <pre><code>document.querySelector("#mein-modal")
   .addEventListener("bit:modal:shown", () =&gt; {
     console.log("ist offen");
   });</code></pre>
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="js.18">
           Verfuegbar: <code>bit:modal:show</code>, <code>bit:modal:shown</code>,
           <code>bit:modal:hide</code>, <code>bit:modal:hidden</code>.
           Die <code>show</code>- und <code>hide</code>-Ereignisse lassen sich
@@ -123,7 +122,7 @@ m.toggle();</code></pre>
 
       <section id="typewriter">
         <h2>Typewriter</h2>
-        <p>Der Text startet, sobald das Element ins Bild scrollt.</p>
+        <p data-i18n-html="js.19">Der Text startet, sobald das Element ins Bild scrollt.</p>
 
         <div class="doc-demo">
           <div class="doc-demo__preview">
@@ -142,7 +141,7 @@ m.toggle();</code></pre>
       </section>
 
       <section id="progress-api">
-        <h2>Fortschritt setzen</h2>
+        <h2 data-i18n-html="js.20">Fortschritt setzen</h2>
         <div class="doc-demo">
           <div class="doc-demo__preview">
             <div class="bit-progress bit-progress--segmented bit-mb-3" id="live-bar">
@@ -157,7 +156,7 @@ m.toggle();</code></pre>
         </div>
 
         <pre><code>Bitstrap.progress("#live-bar", 60);</code></pre>
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="js.21">
           Setzt zugleich <code>aria-valuenow</code>, damit Screenreader den
           Wert mitbekommen.
         </p>
@@ -169,25 +168,25 @@ m.toggle();</code></pre>
           <table class="bit-table bit-table--striped var-table">
             <thead><tr><th>Aufruf</th><th>Bedeutung</th></tr></thead>
             <tbody>
-              <tr><td><code>Bitstrap.init(ctx?)</code></td><td>ARIA nachruesten, z.B. nach Nachladen</td></tr>
+              <tr><td><code>Bitstrap.init(ctx?)</code></td><td data-i18n-html="js.22">ARIA nachruesten, z.B. nach Nachladen</td></tr>
               <tr><td><code>Bitstrap.modal(sel)</code></td><td>Modal-Instanz</td></tr>
-              <tr><td><code>Bitstrap.toast(opts)</code></td><td>Toast zeigen</td></tr>
-              <tr><td><code>Bitstrap.tab(el)</code></td><td>Reiter aktivieren</td></tr>
-              <tr><td><code>Bitstrap.progress(sel, n)</code></td><td>Balken setzen</td></tr>
+              <tr><td><code>Bitstrap.toast(opts)</code></td><td data-i18n-html="js.23">Toast zeigen</td></tr>
+              <tr><td><code>Bitstrap.tab(el)</code></td><td data-i18n-html="js.24">Reiter aktivieren</td></tr>
+              <tr><td><code>Bitstrap.progress(sel, n)</code></td><td data-i18n-html="js.25">Balken setzen</td></tr>
               <tr><td><code>Bitstrap.theme.toggle()</code></td><td>hell/dunkel</td></tr>
-              <tr><td><code>Bitstrap.typewrite(el)</code></td><td>Text tippen lassen</td></tr>
+              <tr><td><code>Bitstrap.typewrite(el)</code></td><td data-i18n-html="js.26">Text tippen lassen</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section id="ohne-js">
-        <h2>Ohne JavaScript</h2>
-        <p>
+        <h2 data-i18n-html="js.27">Ohne JavaScript</h2>
+        <p data-i18n-html="js.28">
           Layout, Grid, alle Formularelemente, Karten, Tabellen, Badges,
           Fortschrittsbalken, Dialogboxen und Tooltips funktionieren
           vollstaendig ohne die JS-Datei. Nur Modal, Tabs, Accordion,
-          Dropdown, Toast, Typewriter und Sound brauchen sie.
+          Dropdown, Toast und Typewriter brauchen sie.
         </p>
       </section>
     </main>
@@ -203,6 +202,7 @@ m.toggle();</code></pre>
 
 <script src="../vendor/bitstrap.js"></script>
 <script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n-docs.js"></script>
 <script src="../assets/i18n.js"></script>
 <script src="../assets/docs.js"></script>
 </body>

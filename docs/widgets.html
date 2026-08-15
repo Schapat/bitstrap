@@ -37,7 +37,7 @@
 
     <main class="docs__main" id="main">
       <h1>Formular-Widgets</h1>
-      <p class="bit-lead">
+      <p class="bit-lead" data-i18n-html="wid.1">
         Die Bausteine, an denen sich CSS-Frameworks sonst vorbeidruecken:
         Datumsauswahl, Autovervollstaendigung, Mehrfachauswahl.
       </p>
@@ -45,8 +45,8 @@
       <div class="bit-alert bit-alert--info">
         <span class="bit-icon bit-icon--sm bit-icon--shield"></span>
         <div class="bit-alert__body">
-          <p class="bit-alert__title">Progressive Enhancement</p>
-          <p class="bit-text-xs bit-m-0">
+          <p class="bit-alert__title" data-i18n-html="wid.2">Progressive Enhancement</p>
+          <p class="bit-text-xs bit-m-0" data-i18n-html="wid.3">
             Jedes Widget baut auf einem echten Formularelement auf. Ohne
             JavaScript bleibt ein normales Feld uebrig, das sich tippen,
             einfuegen und absenden laesst - der Kalender ist eine Zugabe,
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <p class="bit-text-xs bit-muted">
+      <p class="bit-text-xs bit-muted" data-i18n-html="wid.4">
         Diese Seite braucht das Zusatzmodul:
         <code>&lt;script src="bitstrap-forms.js" defer&gt;&lt;/script&gt;</code>
       </p>
@@ -63,7 +63,7 @@
       <!-- ============ DATEPICKER ============ -->
       <section id="datepicker">
         <h2>Datepicker</h2>
-        <p>
+        <p data-i18n-html="wid.5">
           Ein Attribut genuegt. Die Monats- und Wochentagsnamen kommen aus
           dem Browser und folgen der Sprache im <code>&lt;html lang&gt;</code>.
         </p>
@@ -104,17 +104,17 @@
 
         <div class="bit-table-wrap">
           <table class="bit-table bit-table--striped var-table">
-            <thead><tr><th>Attribut / API</th><th>Bedeutung</th></tr></thead>
+            <thead><tr><th data-i18n-html="wid.6">Attribut / API</th><th>Bedeutung</th></tr></thead>
             <tbody>
-              <tr><td><code>data-bit-format="de"</code></td><td>TT.MM.JJJJ statt ISO</td></tr>
-              <tr><td><code>min</code> / <code>max</code></td><td>waehlbarer Bereich (immer ISO)</td></tr>
-              <tr><td><code>bit:date:change</code></td><td>Ereignis mit <code>detail.date</code></td></tr>
-              <tr><td><code>Bitstrap.datepicker(sel)</code></td><td>Instanz mit <code>open/close/select</code></td></tr>
+              <tr><td><code>data-bit-format="de"</code></td><td data-i18n-html="wid.7">TT.MM.JJJJ statt ISO</td></tr>
+              <tr><td data-i18n-html="wid.8"><code>min</code> / <code>max</code></td><td data-i18n-html="wid.9">waehlbarer Bereich (immer ISO)</td></tr>
+              <tr><td><code>bit:date:change</code></td><td data-i18n-html="wid.10">Ereignis mit <code>detail.date</code></td></tr>
+              <tr><td><code>Bitstrap.datepicker(sel)</code></td><td data-i18n-html="wid.11">Instanz mit <code>open/close/select</code></td></tr>
             </tbody>
           </table>
         </div>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="wid.12">
           Tastatur: <kbd>Alt</kbd>+<kbd>Pfeil runter</kbd> oeffnet den Kalender,
           <kbd>Esc</kbd> schliesst ihn.
         </p>
@@ -123,7 +123,7 @@
       <!-- ============ COMBOBOX ============ -->
       <section id="combobox">
         <h2>Combobox</h2>
-        <p>Autovervollstaendigung mit Tastaturbedienung.</p>
+        <p data-i18n-html="wid.13">Autovervollstaendigung mit Tastaturbedienung.</p>
 
         <div class="doc-demo">
           <div class="doc-demo__preview">
@@ -145,7 +145,7 @@
   &lt;ul class="bit-combobox__list" role="listbox"&gt;&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="wid.14">
           <kbd>Pfeil hoch/runter</kbd> waehlt, <kbd>Enter</kbd> uebernimmt,
           <kbd>Esc</kbd> schliesst. Maus- und Tastaturauswahl sehen bewusst
           gleich aus.
@@ -173,7 +173,7 @@
   &lt;input class="bit-tags__input" type="text"&gt;
 &lt;/div&gt;</code></pre>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="wid.15">
           Das versteckte Feld traegt die Werte kommagetrennt ins Formular -
           serverseitig kommt also ein ganz normaler Wert an.
         </p>
@@ -181,7 +181,7 @@
 
       <!-- ============ ZAHLENFELD & CO ============ -->
       <section id="zahlen">
-        <h2>Zahlenfeld, Bewertung, Code</h2>
+        <h2 data-i18n-html="wid.16">Zahlenfeld, Bewertung, Code</h2>
         <div class="doc-demo">
           <div class="doc-demo__preview">
             <div class="bit-stack">
@@ -218,7 +218,7 @@
           </div>
         </div>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="wid.17">
           Die Code-Felder springen beim Tippen weiter; ein eingefuegter
           Code verteilt sich automatisch auf alle Felder.
         </p>
@@ -243,7 +243,7 @@
       <!-- ============ VALIDIERUNG ============ -->
       <section id="validierung">
         <h2>Validierung</h2>
-        <p>
+        <p data-i18n-html="wid.18">
           Bitstrap erfindet keine eigenen Regeln, sondern nutzt die
           Constraint-Validation des Browsers - <code>required</code>,
           <code>type</code>, <code>pattern</code>, <code>minlength</code>.
@@ -281,7 +281,7 @@
          data-bit-message="Eigene Fehlermeldung"&gt;
 &lt;/form&gt;</code></pre>
 
-        <p class="bit-text-xs bit-muted">
+        <p class="bit-text-xs bit-muted" data-i18n-html="wid.19">
           Ein als fehlerhaft markiertes Feld wird beim Korrigieren sofort
           wieder freigegeben - nicht erst beim naechsten Absenden.
           Programmatisch: <code>Bitstrap.validate(formElement)</code>.
@@ -290,7 +290,7 @@
 
       <!-- ============ SEGMENTED ============ -->
       <section id="segmented">
-        <h2>Segmented Control & Suche</h2>
+        <h2 data-i18n-html="wid.20">Segmented Control & Suche</h2>
         <div class="doc-demo">
           <div class="doc-demo__preview">
             <div class="bit-stack">
@@ -323,6 +323,7 @@
 <script src="../vendor/bitstrap-locales.js"></script>
 <script src="../vendor/bitstrap-ui.js"></script>
 <script src="../vendor/bitstrap-forms.js"></script>
+<script src="../assets/i18n-docs.js"></script>
 <script src="../assets/i18n.js"></script>
 <script src="../assets/docs.js"></script>
 </body>

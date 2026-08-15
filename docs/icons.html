@@ -37,19 +37,19 @@
 
     <main class="docs__main" id="main">
       <h1>Icons</h1>
-      <p class="bit-lead">
+      <p class="bit-lead" data-i18n-html="ico.1">
         26 Icons, jedes als 8&times;8-Raster gezeichnet. Klick auf ein Icon
         kopiert sein Markup.
       </p>
 
       <section id="galerie">
-        <h2>Alle Icons</h2>
+        <h2 data-i18n-html="ico.2">Alle Icons</h2>
         <div class="icon-grid" data-icon-grid></div>
       </section>
 
       <section id="verwendung">
         <h2>Verwendung</h2>
-        <p>Ein leeres <code>span</code> mit zwei Klassen - mehr nicht:</p>
+        <p data-i18n-html="ico.3">Ein leeres <code>span</code> mit zwei Klassen - mehr nicht:</p>
         <pre><code>&lt;span class="bit-icon bit-icon--heart"&gt;&lt;/span&gt;</code></pre>
 
         <h3>Groessen</h3>
@@ -66,7 +66,7 @@
         </div>
 
         <h3>Farben</h3>
-        <p>
+        <p data-i18n-html="ico.4">
           Icons uebernehmen die aktuelle Textfarbe. Es gibt also keine
           gesonderte Icon-Farbe zu pflegen:
         </p>
@@ -82,14 +82,14 @@
           </div>
         </div>
 
-        <h3>Freie Groesse</h3>
+        <h3 data-i18n-html="ico.5">Freie Groesse</h3>
         <pre><code>&lt;span class="bit-icon bit-icon--sword"
       style="--bit-icon-size: 96px"&gt;&lt;/span&gt;</code></pre>
 
         <div class="bit-alert bit-alert--info">
           <span class="bit-icon bit-icon--sm bit-icon--bolt"></span>
           <div class="bit-alert__body">
-            <p class="bit-text-xs bit-m-0">
+            <p class="bit-text-xs bit-m-0" data-i18n-html="ico.6">
               Waehle Groessen als Vielfaches von 8, dann trifft jedes
               Rasterpixel exakt auf ein Bildschirmpixel und die Kanten
               bleiben scharf.
@@ -99,8 +99,8 @@
       </section>
 
       <section id="eigene">
-        <h2>Eigene Icons</h2>
-        <p>
+        <h2 data-i18n-html="ico.7">Eigene Icons</h2>
+        <p data-i18n-html="ico.8">
           Icons entstehen in <code>build/icons.mjs</code> als Zeichenraster.
           Ein neues Icon ist acht Zeilen Text - der Build erzeugt daraus die
           CSS-Regel:
@@ -120,10 +120,10 @@ export const ICONS = {
   ],
 };</code></pre>
 
-        <p>Danach neu bauen:</p>
+        <p data-i18n-html="ico.9">Danach neu bauen:</p>
         <pre><code>node build/build.mjs</code></pre>
 
-        <p>
+        <p data-i18n-html="ico.10">
           Und benutzen als <code>.bit-icon--krone</code>. Die Pfeil-Icons
           werden uebrigens aus einem einzigen Raster erzeugt und dreimal
           gedreht - dieselbe Technik steht dir offen.
@@ -131,8 +131,8 @@ export const ICONS = {
       </section>
 
       <section id="technik">
-        <h2>Wie es funktioniert</h2>
-        <p>
+        <h2 data-i18n-html="ico.11">Wie es funktioniert</h2>
+        <p data-i18n-html="ico.12">
           Jedes Raster wird zu einem SVG, in dem zusammenhaengende Pixel
           einer Zeile zu einem Rechteck verschmelzen. Aus 64 Einzelpixeln
           werden so meist unter 14 Rechtecke. Das SVG landet als Data-URI
@@ -147,7 +147,7 @@ export const ICONS = {
   mask-size: 100% 100%;
 }</code></pre>
 
-        <p>
+        <p data-i18n-html="ico.13">
           Die Maske bestimmt die Form, die Hintergrundfarbe die Farbe.
           Daher faerbt <code>color</code> das Icon - und es gibt weder
           Schriftdatei noch Sprite-Sheet noch einen zusaetzlichen Request.
@@ -166,6 +166,7 @@ export const ICONS = {
 
 <script src="../vendor/bitstrap.js"></script>
 <script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n-docs.js"></script>
 <script src="../assets/i18n.js"></script>
 <script src="../assets/docs.js"></script>
 </body>

@@ -46,8 +46,6 @@
       "demo.copy": "Kopieren",
       "demo.copied": "Kopiert!",
 
-      "docs.germanonly.title": "Nur auf Deutsch",
-      "docs.germanonly.text": "Die ausfuehrliche Dokumentation liegt bisher nur auf Deutsch vor. Die Bedienelemente und alle Widget-Texte folgen aber deiner Sprachwahl - probiere den Datepicker aus.",
 
       "footer.license": "MIT-Lizenz",
       "footer.disclaimer": "Nicht mit Nintendo oder anderen Herstellern verbunden.",
@@ -347,8 +345,6 @@
       "demo.copy": "Copy",
       "demo.copied": "Copied!",
 
-      "docs.germanonly.title": "German only",
-      "docs.germanonly.text": "The long-form documentation is currently German only. The interface and every widget string do follow your language choice though - try the datepicker.",
 
       "footer.license": "MIT licence",
       "footer.disclaimer": "Not affiliated with Nintendo or any other manufacturer.",
@@ -643,6 +639,20 @@
       el.textContent = siteT(el.getAttribute("data-i18n"));
     });
 
+    /* Doku-Prosa: der deutsche Text steht im Markup und ist damit der
+       Standard. Uebersetzt wird nur, wenn ein Eintrag vorliegt - und
+       ueber innerHTML, damit Inline-Auszeichnung wie <code> oder Links
+       erhalten bleibt. Das Original wird beim ersten Durchlauf gemerkt,
+       sonst waere der Weg zurueck nach Deutsch verbaut. */
+    scope.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      if (el.__bitOriginal === undefined) el.__bitOriginal = el.innerHTML;
+
+      var docs = (window.BitstrapDocsText || {})[current()] || {};
+      var text = docs[el.getAttribute("data-i18n-html")];
+
+      el.innerHTML = text === undefined ? el.__bitOriginal : text;
+    });
+
     /* Form: "placeholder:key;aria-label:key" */
     scope.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
       el.getAttribute("data-i18n-attr").split(";").forEach(function (pair) {
@@ -800,40 +810,8 @@
     select.value = currentTheme();
   }
 
-  /** Hinweis auf Doku-Seiten, wenn eine andere Sprache gewaehlt ist. */
-  function germanOnlyNotice() {
-    var main = document.querySelector(".docs__main");
-    if (!main) return;
-
-    var note = document.getElementById("lang-note");
-    var needed = current() !== "de";
-
-    if (!needed) {
-      if (note) note.hidden = true;
-      return;
-    }
-
-    if (!note) {
-      note = document.createElement("div");
-      note.id = "lang-note";
-      note.className = "bit-alert bit-alert--info";
-      note.innerHTML =
-        '<span class="bit-icon bit-icon--sm bit-icon--bolt"></span>' +
-        '<div class="bit-alert__body">' +
-        '<p class="bit-alert__title" data-i18n="docs.germanonly.title"></p>' +
-        '<p class="bit-text-xs bit-m-0" data-i18n="docs.germanonly.text"></p></div>';
-      var h1 = main.querySelector("h1");
-      if (h1 && h1.nextSibling) main.insertBefore(note, h1.nextSibling);
-      else main.insertBefore(note, main.firstChild);
-    }
-
-    note.hidden = false;
-    apply(note);
-  }
-
   function refresh() {
     apply();
-    germanOnlyNotice();
     refreshThemeLabels();
     var select = document.querySelector("[data-bit-locale]");
     if (select) select.value = current();

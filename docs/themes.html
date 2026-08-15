@@ -36,8 +36,8 @@
     <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
 
     <main class="docs__main" id="main">
-      <h1>Themes & Anpassung</h1>
-      <p class="bit-lead">
+      <h1 data-i18n-html="thm.1">Themes & Anpassung</h1>
+      <p class="bit-lead" data-i18n-html="thm.2">
         Jedes Theme setzt ausschliesslich Variablen. Kein einziger
         Komponenten-Selektor wird dabei angefasst.
       </p>
@@ -62,7 +62,7 @@
           </div>
           <div class="bit-alert bit-alert--success bit-mb-4">
             <div class="bit-alert__body">
-              <p class="bit-text-xs bit-m-0">Gegenstand aufgenommen.</p>
+              <p class="bit-text-xs bit-m-0" data-i18n-html="thm.3">Gegenstand aufgenommen.</p>
             </div>
           </div>
           <ul class="bit-list bit-list--menu bit-frame bit-mb-4">
@@ -76,14 +76,14 @@
           </div>
         </div>
 
-        <p class="bit-text-xs bit-muted bit-mt-3">
+        <p class="bit-text-xs bit-muted bit-mt-3" data-i18n-html="thm.4">
           Themes wirken auf jeden Container - hier liegt die Klasse nur auf
           diesem Kasten, nicht auf der Seite. Verschachteln ist erlaubt.
         </p>
       </section>
 
       <section id="anwenden">
-        <h2>Theme anwenden</h2>
+        <h2 data-i18n-html="thm.5">Theme anwenden</h2>
         <pre><code>&lt;body class="bit-theme-arcade"&gt;
   ...
 &lt;/body&gt;
@@ -95,28 +95,28 @@
           <table class="bit-table bit-table--striped">
             <thead><tr><th>Klasse</th><th>Charakter</th></tr></thead>
             <tbody>
-              <tr><td><code>.bit-theme-arcade</code></td><td>Neon auf Violett</td></tr>
-              <tr><td><code>.bit-theme-handheld</code></td><td>monochromes LCD-Gruen</td></tr>
-              <tr><td><code>.bit-theme-terminal</code></td><td>Phosphorgruen auf Schwarz</td></tr>
-              <tr><td><code>.bit-theme-candy</code></td><td>helles Pastell</td></tr>
+              <tr><td><code>.bit-theme-arcade</code></td><td data-i18n-html="thm.6">Neon auf Violett</td></tr>
+              <tr><td><code>.bit-theme-handheld</code></td><td data-i18n-html="thm.7">monochromes LCD-Gruen</td></tr>
+              <tr><td><code>.bit-theme-terminal</code></td><td data-i18n-html="thm.8">Phosphorgruen auf Schwarz</td></tr>
+              <tr><td><code>.bit-theme-candy</code></td><td data-i18n-html="thm.9">helles Pastell</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section id="dark">
-        <h2>Dark Mode</h2>
-        <p>
+        <h2 data-i18n-html="thm.10">Dark Mode</h2>
+        <p data-i18n-html="thm.11">
           Bitstrap folgt automatisch der Systemeinstellung. Eine bewusste
           Wahl setzt du per Attribut auf <code>&lt;html&gt;</code>:
         </p>
         <pre><code>&lt;html data-bit-theme="dark"&gt;
 &lt;html data-bit-theme="light"&gt;</code></pre>
 
-        <p>Der Umschalter braucht nur ein Attribut - das JS erledigt den Rest samt Speicherung:</p>
+        <p data-i18n-html="thm.12">Der Umschalter braucht nur ein Attribut - das JS erledigt den Rest samt Speicherung:</p>
         <pre><code>&lt;button class="bit-btn" data-bit-toggle="theme"&gt;Umschalten&lt;/button&gt;</code></pre>
 
-        <p>Oder programmatisch:</p>
+        <p data-i18n-html="thm.13">Oder programmatisch:</p>
         <pre><code>Bitstrap.theme.toggle();
 Bitstrap.theme.set("dark");
 Bitstrap.theme.get();</code></pre>
@@ -124,7 +124,7 @@ Bitstrap.theme.get();</code></pre>
 
       <section id="dichte">
         <h2>Dichte</h2>
-        <p>
+        <p data-i18n-html="thm.14">
           Die Pixel-Einheit bestimmt Rahmenstaerke, Abstaende, Icongroessen -
           praktisch alles. Drei fertige Stufen:
         </p>
@@ -148,8 +148,8 @@ Bitstrap.theme.get();</code></pre>
       </section>
 
       <section id="eigenes-theme">
-        <h2>Eigenes Theme</h2>
-        <p>
+        <h2 data-i18n-html="thm.15">Eigenes Theme</h2>
+        <p data-i18n-html="thm.16">
           Ein Theme besteht aus semantischen Tokens. Diese hier reichen fuer
           ein vollstaendiges Erscheinungsbild:
         </p>
@@ -180,8 +180,8 @@ Bitstrap.theme.get();</code></pre>
         <div class="bit-alert bit-alert--warning">
           <span class="bit-icon bit-icon--sm bit-icon--shield"></span>
           <div class="bit-alert__body">
-            <p class="bit-alert__title">Kontrast pruefen</p>
-            <p class="bit-text-xs bit-m-0">
+            <p class="bit-alert__title" data-i18n-html="thm.17">Kontrast pruefen</p>
+            <p class="bit-text-xs bit-m-0" data-i18n-html="thm.18">
               Retro-Paletten sind oft grell und liegen im Kontrast dicht
               beieinander. Pruefe jedes <code>*-fg</code>-Paar auf
               mindestens 4,5:1 gegenueber seiner Flaeche - sonst wird die
@@ -192,28 +192,28 @@ Bitstrap.theme.get();</code></pre>
       </section>
 
       <section id="tokens">
-        <h2>Wichtige Tokens</h2>
+        <h2 data-i18n-html="thm.19">Wichtige Tokens</h2>
         <div class="bit-table-wrap">
           <table class="bit-table bit-table--striped var-table">
             <thead><tr><th>Token</th><th>Standard</th><th>Wirkung</th></tr></thead>
             <tbody>
-              <tr><td><code>--bit-px</code></td><td>4px</td><td>Pixel-Einheit, skaliert alles</td></tr>
-              <tr><td><code>--bit-font</code></td><td>Press Start 2P, monospace</td><td>Schrift</td></tr>
-              <tr><td><code>--bit-font-body</code></td><td>= <code>--bit-font</code></td><td>Fliesstext getrennt setzbar</td></tr>
+              <tr><td><code>--bit-px</code></td><td>4px</td><td data-i18n-html="thm.20">Pixel-Einheit, skaliert alles</td></tr>
+              <tr><td><code>--bit-font</code></td><td data-i18n-html="thm.21">Press Start 2P, monospace</td><td>Schrift</td></tr>
+              <tr><td><code>--bit-font-body</code></td><td>= <code>--bit-font</code></td><td data-i18n-html="thm.22">Fliesstext getrennt setzbar</td></tr>
               <tr><td><code>--bit-fs</code></td><td>12px</td><td>Grundschriftgroesse</td></tr>
               <tr><td><code>--bit-lh</code></td><td>1.85</td><td>Zeilenhoehe</td></tr>
               <tr><td><code>--bit-container</code></td><td>1180px</td><td>Containerbreite</td></tr>
               <tr><td><code>--bit-gutter</code></td><td>24px</td><td>Grid-Abstand</td></tr>
               <tr><td><code>--bit-dur</code></td><td>120ms</td><td>Uebergangsdauer</td></tr>
-              <tr><td><code>--bit-step</code></td><td>steps(4, end)</td><td>Stufige Animation statt Easing</td></tr>
+              <tr><td><code>--bit-step</code></td><td data-i18n-html="thm.23">steps(4, end)</td><td data-i18n-html="thm.24">Stufige Animation statt Easing</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section id="palette">
-        <h2>Rohe Palette</h2>
-        <p>Unabhaengig vom Theme immer verfuegbar als <code>--bit-c-*</code>:</p>
+        <h2 data-i18n-html="thm.25">Rohe Palette</h2>
+        <p data-i18n-html="thm.26">Unabhaengig vom Theme immer verfuegbar als <code>--bit-c-*</code>:</p>
 
         <div class="bit-tiles" style="--bit-tile-min:110px">
           <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-red)"></span>red</div>
@@ -233,7 +233,7 @@ Bitstrap.theme.get();</code></pre>
           <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-paper)"></span>paper</div>
         </div>
 
-        <p class="bit-text-xs bit-muted bit-mt-3">
+        <p class="bit-text-xs bit-muted bit-mt-3" data-i18n-html="thm.27">
           Nutzbar als <code>.bit-text-gold</code>, <code>.bit-bg-navy</code>,
           <code>.bit-border-pink</code> oder direkt per
           <code>var(--bit-c-gold)</code>.
@@ -252,6 +252,7 @@ Bitstrap.theme.get();</code></pre>
 
 <script src="../vendor/bitstrap.js"></script>
 <script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n-docs.js"></script>
 <script src="../assets/i18n.js"></script>
 <script src="../assets/docs.js"></script>
 </body>
