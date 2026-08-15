@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulare · Bitstrap</title>
+<meta name="description" content="Bitstrap-Formulare: Eingabefelder, Checkboxen, Radios, Switches, Slider und Validierung im Pixel-Stil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="icons.html" data-i18n="nav.icons">Icons</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Formulare</h1>
+      <p class="bit-lead">
+        Checkbox, Radio, Switch und Slider werden komplett neu gezeichnet.
+        Das native Element bleibt dabei erhalten - nur unsichtbar.
+      </p>
+
+      <div class="bit-alert bit-alert--info">
+        <span class="bit-icon bit-icon--sm bit-icon--shield"></span>
+        <div class="bit-alert__body">
+          <p class="bit-alert__title">Warum das wichtig ist</p>
+          <p class="bit-text-xs bit-m-0">
+            Statt <code>appearance: none</code> auf ein Ersatz-<code>div</code>
+            anzuwenden, bleibt das echte <code>&lt;input&gt;</code> im DOM.
+            Tastaturbedienung, Screenreader, Formularabsendung und
+            Browser-Autofill funktionieren dadurch unveraendert.
+          </p>
+        </div>
+      </div>
+
+      <section id="textfelder">
+        <h2>Textfelder</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-field">
+              <label class="bit-label bit-label--required" for="f-name">Spielername</label>
+              <input class="bit-input" id="f-name" type="text" placeholder="SPIELER_1">
+              <span class="bit-help">Drei bis zwoelf Zeichen.</span>
+            </div>
+
+            <div class="bit-field">
+              <label class="bit-label" for="f-class">Klasse</label>
+              <select class="bit-select" id="f-class">
+                <option>Ritter</option>
+                <option>Magierin</option>
+                <option>Dieb</option>
+              </select>
+            </div>
+
+            <div class="bit-field">
+              <label class="bit-label" for="f-bio">Hintergrund</label>
+              <textarea class="bit-textarea" id="f-bio" placeholder="Geboren in einem kleinen Dorf..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <h3>Validierung</h3>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-field">
+              <label class="bit-label" for="f-ok">Gueltig</label>
+              <input class="bit-input is-valid" id="f-ok" type="text" value="HELDIN">
+            </div>
+            <div class="bit-field">
+              <label class="bit-label" for="f-bad">Ungueltig</label>
+              <input class="bit-input is-invalid" id="f-bad" type="text" value="X">
+              <span class="bit-error">Zu kurz.</span>
+            </div>
+            <div class="bit-field">
+              <label class="bit-label" for="f-off">Gesperrt</label>
+              <input class="bit-input" id="f-off" type="text" value="Gesperrt" disabled>
+            </div>
+          </div>
+        </div>
+
+        <h3>Eingabegruppe</h3>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-input-group">
+              <span class="bit-input-group__addon">GOLD</span>
+              <input class="bit-input" type="number" value="250">
+              <button class="bit-btn bit-btn--primary">Zahlen</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="auswahl">
+        <h2>Checkbox, Radio, Switch</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-stack">
+              <label class="bit-check">
+                <input type="checkbox" checked>
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label">Schwerer Modus</span>
+              </label>
+
+              <label class="bit-check">
+                <input type="checkbox">
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label">Untertitel anzeigen</span>
+              </label>
+
+              <label class="bit-check">
+                <input type="checkbox" disabled>
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label">Bonusinhalt (gesperrt)</span>
+              </label>
+
+              <hr>
+
+              <label class="bit-check bit-check--radio">
+                <input type="radio" name="diff" checked>
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label">Leicht</span>
+              </label>
+              <label class="bit-check bit-check--radio">
+                <input type="radio" name="diff">
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label">Normal</span>
+              </label>
+              <label class="bit-check bit-check--radio">
+                <input type="radio" name="diff">
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label">Albtraum</span>
+              </label>
+
+              <hr>
+
+              <label class="bit-switch">
+                <input type="checkbox" checked>
+                <span class="bit-switch__track"></span>
+                <span>Musik</span>
+              </label>
+              <label class="bit-switch">
+                <input type="checkbox">
+                <span class="bit-switch__track"></span>
+                <span>Vollbild</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="slider">
+        <h2>Slider & Datei</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-field">
+              <label class="bit-label" for="f-vol">Lautstaerke</label>
+              <input class="bit-range" id="f-vol" type="range" value="70">
+            </div>
+
+            <div class="bit-file">
+              <input type="file" id="f-save" aria-label="Spielstand waehlen">
+              <span class="bit-btn bit-btn--primary">
+                <span class="bit-icon bit-icon--xs bit-icon--key"></span>
+                Spielstand laden
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="fieldset">
+        <h2>Vollstaendiges Formular</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <form>
+              <fieldset class="bit-fieldset">
+                <legend>NEUES SPIEL</legend>
+
+                <div class="bit-field">
+                  <label class="bit-label bit-label--required" for="f2-name">Name</label>
+                  <input class="bit-input" id="f2-name" type="text" required>
+                </div>
+
+                <div class="bit-row">
+                  <div class="bit-col bit-col-md-6">
+                    <div class="bit-field">
+                      <label class="bit-label" for="f2-world">Welt</label>
+                      <select class="bit-select" id="f2-world">
+                        <option>Waldland</option>
+                        <option>Wuestenreich</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bit-col bit-col-md-6">
+                    <div class="bit-field">
+                      <label class="bit-label" for="f2-seed">Startwert</label>
+                      <input class="bit-input" id="f2-seed" type="text" value="8BIT">
+                    </div>
+                  </div>
+                </div>
+
+                <label class="bit-check bit-mb-4">
+                  <input type="checkbox" required>
+                  <span class="bit-check__box"></span>
+                  <span class="bit-check__label bit-text-xs">Ich akzeptiere die Regeln.</span>
+                </label>
+
+                <div class="bit-cluster">
+                  <button class="bit-btn bit-btn--primary" type="submit">Abenteuer starten</button>
+                  <button class="bit-btn" type="reset">Zuruecksetzen</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

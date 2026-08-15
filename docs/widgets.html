@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formular-Widgets · Bitstrap</title>
+<meta name="description" content="Datepicker, Combobox, Tag-Eingabe, Zahlenfeld, Dropzone, Code-Eingabe, Passwortstaerke und Formularvalidierung in Bitstrap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="layouts.html" data-i18n="nav.layouts">Layouts</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Formular-Widgets</h1>
+      <p class="bit-lead">
+        Die Bausteine, an denen sich CSS-Frameworks sonst vorbeidruecken:
+        Datumsauswahl, Autovervollstaendigung, Mehrfachauswahl.
+      </p>
+
+      <div class="bit-alert bit-alert--info">
+        <span class="bit-icon bit-icon--sm bit-icon--shield"></span>
+        <div class="bit-alert__body">
+          <p class="bit-alert__title">Progressive Enhancement</p>
+          <p class="bit-text-xs bit-m-0">
+            Jedes Widget baut auf einem echten Formularelement auf. Ohne
+            JavaScript bleibt ein normales Feld uebrig, das sich tippen,
+            einfuegen und absenden laesst - der Kalender ist eine Zugabe,
+            keine Voraussetzung.
+          </p>
+        </div>
+      </div>
+
+      <p class="bit-text-xs bit-muted">
+        Diese Seite braucht das Zusatzmodul:
+        <code>&lt;script src="bitstrap-forms.js" defer&gt;&lt;/script&gt;</code>
+      </p>
+
+      <!-- ============ DATEPICKER ============ -->
+      <section id="datepicker">
+        <h2>Datepicker</h2>
+        <p>
+          Ein Attribut genuegt. Die Monats- und Wochentagsnamen kommen aus
+          dem Browser und folgen der Sprache im <code>&lt;html lang&gt;</code>.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-row">
+              <div class="bit-col bit-col-md-6">
+                <div class="bit-field">
+                  <label class="bit-label" for="dp1">Datum (ISO)</label>
+                  <div class="bit-datepicker">
+                    <input class="bit-input" id="dp1" type="text" data-bit-datepicker placeholder="2026-08-14">
+                  </div>
+                  <span class="bit-help">Format YYYY-MM-DD</span>
+                </div>
+              </div>
+              <div class="bit-col bit-col-md-6">
+                <div class="bit-field">
+                  <label class="bit-label" for="dp2">Datum (deutsch)</label>
+                  <div class="bit-datepicker">
+                    <input class="bit-input" id="dp2" type="text" data-bit-datepicker data-bit-format="de" placeholder="14.08.2026">
+                  </div>
+                  <span class="bit-help">Format TT.MM.JJJJ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class="bit-datepicker"&gt;
+  &lt;input class="bit-input" type="text" data-bit-datepicker&gt;
+&lt;/div&gt;
+
+&lt;!-- deutsches Format, Bereich begrenzen --&gt;
+&lt;input class="bit-input" type="text"
+       data-bit-datepicker data-bit-format="de"
+       min="2026-01-01" max="2026-12-31"&gt;</code></pre>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped var-table">
+            <thead><tr><th>Attribut / API</th><th>Bedeutung</th></tr></thead>
+            <tbody>
+              <tr><td><code>data-bit-format="de"</code></td><td>TT.MM.JJJJ statt ISO</td></tr>
+              <tr><td><code>min</code> / <code>max</code></td><td>waehlbarer Bereich (immer ISO)</td></tr>
+              <tr><td><code>bit:date:change</code></td><td>Ereignis mit <code>detail.date</code></td></tr>
+              <tr><td><code>Bitstrap.datepicker(sel)</code></td><td>Instanz mit <code>open/close/select</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="bit-text-xs bit-muted">
+          Tastatur: <kbd>Alt</kbd>+<kbd>Pfeil runter</kbd> oeffnet den Kalender,
+          <kbd>Esc</kbd> schliesst ihn.
+        </p>
+      </section>
+
+      <!-- ============ COMBOBOX ============ -->
+      <section id="combobox">
+        <h2>Combobox</h2>
+        <p>Autovervollstaendigung mit Tastaturbedienung.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-field">
+              <label class="bit-label" for="cb1">Programmiersprache</label>
+              <div class="bit-combobox">
+                <input class="bit-input" id="cb1" type="text" data-bit-combobox
+                       data-bit-options='["JavaScript","TypeScript","Python","Rust","Go","Ruby","Elixir","Haskell","C","Zig"]'
+                       placeholder="Tippen zum Filtern">
+                <ul class="bit-combobox__list" role="listbox"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class="bit-combobox"&gt;
+  &lt;input class="bit-input" type="text" data-bit-combobox
+         data-bit-options='["Rot","Gruen","Blau"]'&gt;
+  &lt;ul class="bit-combobox__list" role="listbox"&gt;&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+        <p class="bit-text-xs bit-muted">
+          <kbd>Pfeil hoch/runter</kbd> waehlt, <kbd>Enter</kbd> uebernimmt,
+          <kbd>Esc</kbd> schliesst. Maus- und Tastaturauswahl sehen bewusst
+          gleich aus.
+        </p>
+      </section>
+
+      <!-- ============ TAGS ============ -->
+      <section id="tags">
+        <h2>Tag-Eingabe</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-field">
+              <label class="bit-label" for="tg1">Schlagworte</label>
+              <div class="bit-tags">
+                <input type="hidden" name="tags" value="css,retro">
+                <input class="bit-tags__input" id="tg1" type="text" placeholder="Enter zum Hinzufuegen">
+              </div>
+              <span class="bit-help">Enter oder Komma fuegt hinzu, Backspace loescht das letzte.</span>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class="bit-tags"&gt;
+  &lt;input type="hidden" name="tags" value="css,retro"&gt;
+  &lt;input class="bit-tags__input" type="text"&gt;
+&lt;/div&gt;</code></pre>
+
+        <p class="bit-text-xs bit-muted">
+          Das versteckte Feld traegt die Werte kommagetrennt ins Formular -
+          serverseitig kommt also ein ganz normaler Wert an.
+        </p>
+      </section>
+
+      <!-- ============ ZAHLENFELD & CO ============ -->
+      <section id="zahlen">
+        <h2>Zahlenfeld, Bewertung, Code</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-stack">
+              <div>
+                <label class="bit-label bit-mb-2 bit-block" for="nm1">Menge</label>
+                <div class="bit-number">
+                  <button class="bit-btn" type="button" data-bit-number="down" aria-label="Weniger">-</button>
+                  <input class="bit-input" id="nm1" type="number" value="3" min="0" max="99">
+                  <button class="bit-btn" type="button" data-bit-number="up" aria-label="Mehr">+</button>
+                </div>
+              </div>
+
+              <div>
+                <span class="bit-label bit-mb-2 bit-block">Bewertung</span>
+                <span class="bit-rating">
+                  <input type="radio" name="stars" id="s5" value="5"><label for="s5"><span class="bit-icon bit-icon--sm bit-icon--star"></span></label>
+                  <input type="radio" name="stars" id="s4" value="4"><label for="s4"><span class="bit-icon bit-icon--sm bit-icon--star"></span></label>
+                  <input type="radio" name="stars" id="s3" value="3" checked><label for="s3"><span class="bit-icon bit-icon--sm bit-icon--star"></span></label>
+                  <input type="radio" name="stars" id="s2" value="2"><label for="s2"><span class="bit-icon bit-icon--sm bit-icon--star"></span></label>
+                  <input type="radio" name="stars" id="s1" value="1"><label for="s1"><span class="bit-icon bit-icon--sm bit-icon--star"></span></label>
+                </span>
+              </div>
+
+              <div>
+                <span class="bit-label bit-mb-2 bit-block">Bestaetigungscode</span>
+                <span class="bit-otp">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="Ziffer 1">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="Ziffer 2">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="Ziffer 3">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="Ziffer 4">
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="bit-text-xs bit-muted">
+          Die Code-Felder springen beim Tippen weiter; ein eingefuegter
+          Code verteilt sich automatisch auf alle Felder.
+        </p>
+      </section>
+
+      <!-- ============ DROPZONE ============ -->
+      <section id="dropzone">
+        <h2>Dropzone</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <label class="bit-dropzone">
+              <input type="file" multiple>
+              <span class="bit-icon bit-icon--lg bit-icon--key"></span>
+              <strong class="bit-text-sm">Dateien hierher ziehen</strong>
+              <span class="bit-dropzone__hint">oder klicken zum Auswaehlen</span>
+              <ul class="bit-dropzone__files"></ul>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ VALIDIERUNG ============ -->
+      <section id="validierung">
+        <h2>Validierung</h2>
+        <p>
+          Bitstrap erfindet keine eigenen Regeln, sondern nutzt die
+          Constraint-Validation des Browsers - <code>required</code>,
+          <code>type</code>, <code>pattern</code>, <code>minlength</code>.
+          Uebersetzt werden nur die Meldungen und Zustandsklassen.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <form data-bit-validate>
+              <div class="bit-field">
+                <label class="bit-label bit-label--required" for="v1">E-Mail</label>
+                <input class="bit-input" id="v1" type="email" required
+                       data-bit-message="Bitte eine gueltige E-Mail-Adresse eingeben.">
+              </div>
+
+              <div class="bit-field">
+                <label class="bit-label bit-label--required" for="v2">Passwort</label>
+                <input class="bit-input" id="v2" type="password" required minlength="8"
+                       data-bit-strength="#pw-meter">
+                <span class="bit-strength" id="pw-meter" data-level="0">
+                  <span class="bit-strength__bar"></span>
+                  <span class="bit-strength__bar"></span>
+                  <span class="bit-strength__bar"></span>
+                  <span class="bit-strength__bar"></span>
+                </span>
+              </div>
+
+              <button class="bit-btn bit-btn--primary" type="submit">Absenden</button>
+            </form>
+          </div>
+        </div>
+
+        <pre><code>&lt;form data-bit-validate&gt;
+  &lt;input class="bit-input" type="email" required
+         data-bit-message="Eigene Fehlermeldung"&gt;
+&lt;/form&gt;</code></pre>
+
+        <p class="bit-text-xs bit-muted">
+          Ein als fehlerhaft markiertes Feld wird beim Korrigieren sofort
+          wieder freigegeben - nicht erst beim naechsten Absenden.
+          Programmatisch: <code>Bitstrap.validate(formElement)</code>.
+        </p>
+      </section>
+
+      <!-- ============ SEGMENTED ============ -->
+      <section id="segmented">
+        <h2>Segmented Control & Suche</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-stack">
+              <span class="bit-segmented">
+                <input type="radio" name="view" id="vw1" checked><label for="vw1">Liste</label>
+                <input type="radio" name="view" id="vw2"><label for="vw2">Raster</label>
+                <input type="radio" name="view" id="vw3"><label for="vw3">Karte</label>
+              </span>
+
+              <label class="bit-search">
+                <span class="bit-icon bit-icon--xs bit-icon--search bit-search__icon"></span>
+                <input class="bit-input" type="search" placeholder="Suchen..." aria-label="Suchen">
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../vendor/bitstrap-ui.js"></script>
+<script src="../vendor/bitstrap-forms.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komponenten · Bitstrap</title>
+<meta name="description" content="Alle Bitstrap-Komponenten: Buttons, Karten, Dialogboxen, Tabellen, Modals, Tabs, Toasts, Fortschrittsbalken und mehr.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="getting-started.html" data-i18n="nav.docs">Doku</a></li>
+        <li><a class="bit-navbar__link" href="icons.html" data-i18n="nav.icons">Icons</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Komponenten</h1>
+      <p class="bit-lead">
+        Jedes Beispiel zeigt seinen eigenen Quelltext - klick auf
+        <em>Code anzeigen</em>.
+      </p>
+
+      <!-- ============ BUTTONS ============ -->
+      <section id="buttons">
+        <h2>Buttons</h2>
+        <p>Acht Varianten, fuenf Groessen. Beim Klick rutscht der Button eine Pixelreihe nach unten.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster">
+              <button class="bit-btn">Standard</button>
+              <button class="bit-btn bit-btn--primary">Primaer</button>
+              <button class="bit-btn bit-btn--secondary">Sekundaer</button>
+              <button class="bit-btn bit-btn--success">Erfolg</button>
+              <button class="bit-btn bit-btn--warning">Warnung</button>
+              <button class="bit-btn bit-btn--danger">Gefahr</button>
+              <button class="bit-btn bit-btn--dark">Dunkel</button>
+              <button class="bit-btn bit-btn--ghost">Ghost</button>
+            </div>
+          </div>
+        </div>
+
+        <h3>Groessen</h3>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster">
+              <button class="bit-btn bit-btn--xs bit-btn--primary">XS</button>
+              <button class="bit-btn bit-btn--sm bit-btn--primary">SM</button>
+              <button class="bit-btn bit-btn--primary">MD</button>
+              <button class="bit-btn bit-btn--lg bit-btn--primary">LG</button>
+              <button class="bit-btn bit-btn--xl bit-btn--primary">XL</button>
+            </div>
+          </div>
+        </div>
+
+        <h3>Mit Icon, Zustaende, Gruppen</h3>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster bit-mb-4">
+              <button class="bit-btn bit-btn--primary">
+                <span class="bit-icon bit-icon--xs bit-icon--coin"></span>
+                Sammeln
+              </button>
+              <button class="bit-btn bit-btn--icon" aria-label="Suchen">
+                <span class="bit-icon bit-icon--xs bit-icon--search"></span>
+              </button>
+              <button class="bit-btn" disabled>Deaktiviert</button>
+              <button class="bit-btn bit-btn--success is-loading">Laedt</button>
+              <button class="bit-btn bit-btn--start">START</button>
+            </div>
+
+            <div class="bit-btn-group bit-btn-group--joined">
+              <button class="bit-btn bit-btn--sm">Links</button>
+              <button class="bit-btn bit-btn--sm bit-btn--primary">Mitte</button>
+              <button class="bit-btn bit-btn--sm">Rechts</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ KARTEN ============ -->
+      <section id="karten">
+        <h2>Karten</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-tiles">
+              <div class="bit-card bit-shadow">
+                <div class="bit-card__header">
+                  <span>Gegenstand</span>
+                  <span class="bit-badge bit-badge--warning">Selten</span>
+                </div>
+                <div class="bit-card__body">
+                  <h4 class="bit-card__title">Pixel-Schwert</h4>
+                  <p class="bit-text-xs">Angriff +12. Fundort: Hoehle im Norden.</p>
+                </div>
+                <div class="bit-card__footer">
+                  <button class="bit-btn bit-btn--sm bit-btn--primary">Ausruesten</button>
+                </div>
+              </div>
+
+              <div class="bit-card bit-card--dark">
+                <div class="bit-card__body">
+                  <h4 class="bit-card__title">Dunkle Variante</h4>
+                  <p class="bit-text-xs">Fuer Bereiche mit hohem Kontrast.</p>
+                </div>
+              </div>
+
+              <div class="bit-card bit-card--interactive">
+                <div class="bit-card__body">
+                  <h4 class="bit-card__title">Interaktiv</h4>
+                  <p class="bit-text-xs">Springt beim Ueberfahren an.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ DIALOGBOX ============ -->
+      <section id="dialogbox">
+        <h2>Dialogbox</h2>
+        <p>Die Textbox aus Rollenspielen - mit Sprechzipfel und blinkendem Weiter-Pfeil.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-dialog bit-frame bit-dialog--tail bit-dialog--next bit-mb-6">
+              <span class="bit-dialog__speaker">HAENDLER</span>
+              <p class="bit-m-0">Willkommen! Was darf es sein?</p>
+            </div>
+
+            <div class="bit-dialog bit-frame bit-dialog--dark bit-dialog--tail bit-dialog--tail-right">
+              <span class="bit-dialog__speaker">SPIELER</span>
+              <p class="bit-m-0">Ich schaue mich nur um.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MELDUNGEN ============ -->
+      <section id="meldungen">
+        <h2>Meldungen</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-alert bit-alert--success">
+              <span class="bit-icon bit-icon--sm bit-icon--check"></span>
+              <div class="bit-alert__body">
+                <p class="bit-alert__title">Geschafft</p>
+                <p class="bit-text-xs bit-m-0">Der Spielstand wurde gesichert.</p>
+              </div>
+              <button class="bit-btn bit-btn--bare bit-btn--xs" data-bit-dismiss="alert" aria-label="Schliessen">x</button>
+            </div>
+
+            <div class="bit-alert bit-alert--warning">
+              <span class="bit-icon bit-icon--sm bit-icon--bolt"></span>
+              <div class="bit-alert__body">
+                <p class="bit-text-xs bit-m-0">Wenig Energie. Suche einen Heiltrank.</p>
+              </div>
+            </div>
+
+            <div class="bit-alert bit-alert--danger bit-alert--solid">
+              <span class="bit-icon bit-icon--sm bit-icon--skull"></span>
+              <div class="bit-alert__body">
+                <p class="bit-text-xs bit-m-0">Verbindung verloren.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ BADGES ============ -->
+      <section id="badges">
+        <h2>Badges</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster">
+              <span class="bit-badge">Standard</span>
+              <span class="bit-badge bit-badge--primary">Primaer</span>
+              <span class="bit-badge bit-badge--success">Aktiv</span>
+              <span class="bit-badge bit-badge--warning">Beta</span>
+              <span class="bit-badge bit-badge--danger">Kritisch</span>
+              <span class="bit-badge bit-badge--dark">
+                <span class="bit-icon bit-icon--xs bit-icon--star"></span>
+                Selten
+              </span>
+              <span class="bit-relative bit-inline-block">
+                <button class="bit-btn bit-btn--sm">Postfach</button>
+                <span class="bit-badge bit-badge--danger bit-badge--float">3</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FORTSCHRITT ============ -->
+      <section id="fortschritt">
+        <h2>Fortschritt & Energie</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-stack">
+              <div class="bit-progress">
+                <span class="bit-progress__bar" style="width:45%"></span>
+              </div>
+              <div class="bit-progress bit-progress--segmented">
+                <span class="bit-progress__bar" style="width:70%"></span>
+              </div>
+              <div class="bit-progress bit-progress--striped bit-progress--danger bit-progress--lg">
+                <span class="bit-progress__bar" style="width:30%"></span>
+              </div>
+              <div class="bit-hearts">
+                <span class="bit-icon bit-icon--heart"></span>
+                <span class="bit-icon bit-icon--heart"></span>
+                <span class="bit-icon bit-icon--heart is-empty"></span>
+              </div>
+              <div class="bit-cluster">
+                <span class="bit-spinner"></span>
+                <span class="bit-dots"><span></span><span></span><span></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TABELLEN ============ -->
+      <section id="tabellen">
+        <h2>Tabellen</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-table-wrap">
+              <table class="bit-table bit-table--striped bit-table--hover">
+                <thead>
+                  <tr><th>Rang</th><th>Name</th><th>Punkte</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>ANNA</td><td>128500</td></tr>
+                  <tr><td>2</td><td>BJOERN</td><td>96200</td></tr>
+                  <tr><td>3</td><td>CLARA</td><td>81050</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LISTEN ============ -->
+      <section id="listen">
+        <h2>Listen & Menues</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-row">
+              <div class="bit-col bit-col-md-6">
+                <ul class="bit-list bit-frame bit-list--menu">
+                  <li class="bit-list__item is-active">Angriff</li>
+                  <li class="bit-list__item">Magie</li>
+                  <li class="bit-list__item">Gegenstaende</li>
+                  <li class="bit-list__item">Fliehen</li>
+                </ul>
+              </div>
+              <div class="bit-col bit-col-md-6">
+                <ul class="bit-list bit-frame">
+                  <li class="bit-list__item">
+                    <span>Heiltrank</span>
+                    <span class="bit-badge bit-badge--success">x3</span>
+                  </li>
+                  <li class="bit-list__item">
+                    <span>Schluessel</span>
+                    <span class="bit-badge">x1</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TABS ============ -->
+      <section id="tabs">
+        <h2>Tabs</h2>
+        <p>Mit Pfeiltasten bedienbar. Braucht die JS-Datei.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-tabs">
+              <ul class="bit-tabs__list">
+                <li><button class="bit-tabs__tab is-active" data-bit-toggle="tab" data-bit-target="#tab-stats">Werte</button></li>
+                <li><button class="bit-tabs__tab" data-bit-toggle="tab" data-bit-target="#tab-items">Beutel</button></li>
+                <li><button class="bit-tabs__tab" data-bit-toggle="tab" data-bit-target="#tab-map">Karte</button></li>
+              </ul>
+              <div class="bit-tabs__panel bit-frame" id="tab-stats">
+                <p class="bit-m-0">Staerke 12 · Geschick 8 · Gluecklich immer.</p>
+              </div>
+              <div class="bit-tabs__panel bit-frame" id="tab-items" hidden>
+                <p class="bit-m-0">Drei Heiltraenke und ein rostiger Schluessel.</p>
+              </div>
+              <div class="bit-tabs__panel bit-frame" id="tab-map" hidden>
+                <p class="bit-m-0">Noch unerforscht.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ACCORDION ============ -->
+      <section id="accordion">
+        <h2>Accordion</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-accordion bit-frame" data-bit-single>
+              <div class="bit-accordion__item is-open">
+                <button class="bit-accordion__trigger" data-bit-toggle="accordion">Wie speichere ich?</button>
+                <div class="bit-accordion__panel">
+                  <p class="bit-text-xs bit-m-0">An jedem Leuchtfeuer. Oder gar nicht, mutige Person.</p>
+                </div>
+              </div>
+              <div class="bit-accordion__item">
+                <button class="bit-accordion__trigger" data-bit-toggle="accordion">Gibt es einen Endgegner?</button>
+                <div class="bit-accordion__panel">
+                  <p class="bit-text-xs bit-m-0">Ja. Der Internet Explorer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ OVERLAYS ============ -->
+      <section id="overlays">
+        <h2>Modal, Dropdown, Tooltip, Toast</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster">
+              <button class="bit-btn bit-btn--primary" data-bit-toggle="modal" data-bit-target="#doc-modal">Modal oeffnen</button>
+
+              <div class="bit-dropdown">
+                <button class="bit-btn" data-bit-toggle="dropdown" aria-expanded="false">Menue</button>
+                <ul class="bit-dropdown__menu">
+                  <li><a class="bit-dropdown__item" href="#overlays">Fortsetzen</a></li>
+                  <li><a class="bit-dropdown__item" href="#overlays">Speichern</a></li>
+                  <li><span class="bit-dropdown__divider"></span></li>
+                  <li><a class="bit-dropdown__item" href="#overlays">Beenden</a></li>
+                </ul>
+              </div>
+
+              <span class="bit-tooltip">
+                <button class="bit-btn">Tooltip</button>
+                <span class="bit-tooltip__bubble">Erscheint auch bei Tastaturfokus.</span>
+              </span>
+
+              <button class="bit-btn bit-btn--success"
+                      onclick="Bitstrap.toast({title:'Level 9!',message:'Ausdauer gestiegen.',variant:'success',icon:'star'})">
+                Toast
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ NAVIGATION ============ -->
+      <section id="navigation">
+        <h2>Navigation</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <ol class="bit-breadcrumb">
+              <li><a href="#navigation">Welt</a></li>
+              <li><a href="#navigation">Hoehle</a></li>
+              <li>Schatzkammer</li>
+            </ol>
+
+            <ul class="bit-pagination">
+              <li><a class="bit-pagination__link is-disabled" href="#navigation">&lt;</a></li>
+              <li><a class="bit-pagination__link is-active" href="#navigation">1</a></li>
+              <li><a class="bit-pagination__link" href="#navigation">2</a></li>
+              <li><a class="bit-pagination__link" href="#navigation">3</a></li>
+              <li><a class="bit-pagination__link" href="#navigation">&gt;</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EFFEKTE ============ -->
+      <section id="effekte">
+        <h2>Effekte</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-crt bit-crt--vignette bit-bg-stars bit-p-6 bit-mb-4" style="color:#fdf6e3">
+              <p class="bit-m-0">Scanlines und Vignette wie auf einer Bildroehre.</p>
+            </div>
+            <div class="bit-cluster">
+              <span class="bit-icon bit-icon--lg bit-icon--coin bit-float" style="color:var(--bit-c-gold)"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--ghost bit-jump"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--star bit-rainbow"></span>
+              <strong class="bit-blink">DRUECKE START</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="bit-modal" id="doc-modal">
+  <div class="bit-modal__backdrop"></div>
+  <div class="bit-modal__box">
+    <div class="bit-modal__header">
+      <h3 class="bit-modal__title">Wirklich beenden?</h3>
+      <button class="bit-btn bit-btn--bare bit-btn--xs" data-bit-dismiss="modal" aria-label="Schliessen">
+        <span class="bit-icon bit-icon--xs bit-icon--cross"></span>
+      </button>
+    </div>
+    <div class="bit-modal__body">
+      <p>Nicht gespeicherter Fortschritt geht verloren.</p>
+      <p class="bit-text-xs bit-muted bit-m-0">Schliessen per Escape, Klick daneben oder Knopf.</p>
+    </div>
+    <div class="bit-modal__footer">
+      <button class="bit-btn bit-btn--sm" data-bit-dismiss="modal">Zurueck</button>
+      <button class="bit-btn bit-btn--sm bit-btn--danger" data-bit-dismiss="modal">Beenden</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

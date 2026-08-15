@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript · Bitstrap</title>
+<meta name="description" content="Die JavaScript-API von Bitstrap: Modals, Tabs, Toasts, Typewriter, Theme und Sprachen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="getting-started.html" data-i18n="nav.docs">Doku</a></li>
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>JavaScript</h1>
+      <p class="bit-lead">
+        Rund 13 KB, keine Abhaengigkeiten. Alles laeuft ueber Attribute -
+        JavaScript schreiben musst du nur, wenn du willst.
+      </p>
+
+      <section id="attribute">
+        <h2>Steuerung per Attribut</h2>
+        <p>
+          Die Ereignisse haengen an <code>document</code>. Elemente, die du
+          spaeter nachlaedst, funktionieren daher ohne erneutes
+          <code>init()</code>.
+        </p>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped var-table">
+            <thead><tr><th>Attribut</th><th>Wirkung</th></tr></thead>
+            <tbody>
+              <tr><td><code>data-bit-toggle="modal"</code></td><td>oeffnet das Ziel</td></tr>
+              <tr><td><code>data-bit-toggle="dropdown"</code></td><td>klappt das Menue auf</td></tr>
+              <tr><td><code>data-bit-toggle="tab"</code></td><td>wechselt den Reiter</td></tr>
+              <tr><td><code>data-bit-toggle="accordion"</code></td><td>klappt den Abschnitt auf</td></tr>
+              <tr><td><code>data-bit-toggle="navbar"</code></td><td>mobiles Menue</td></tr>
+              <tr><td><code>data-bit-toggle="theme"</code></td><td>hell/dunkel umschalten</td></tr>
+              <tr><td><code>data-bit-target="#id"</code></td><td>Ziel des Triggers</td></tr>
+              <tr><td><code>data-bit-dismiss="modal|alert|toast"</code></td><td>schliesst das Umgebende</td></tr>
+              <tr><td><code></code></td><td>Klang beim Klick</td></tr>
+              <tr><td><code>data-bit-typewriter</code></td><td>Text erscheint zeichenweise</td></tr>
+              <tr><td><code>data-bit-single</code></td><td>Accordion: nur eines offen</td></tr>
+              <tr><td><code>data-bit-static</code></td><td>Modal: nicht per Escape/Klick schliessbar</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="modal-api">
+        <h2>Modal</h2>
+        <pre><code>&lt;button data-bit-toggle="modal" data-bit-target="#mein-modal"&gt;Oeffnen&lt;/button&gt;</code></pre>
+        <p>Oder aus dem Code heraus:</p>
+        <pre><code>const m = Bitstrap.modal("#mein-modal");
+m.show();
+m.hide();
+m.toggle();</code></pre>
+
+        <p>Escape schliesst, ein Klick auf den Hintergrund ebenfalls, der Fokus wandert in den Dialog.</p>
+
+        <h3>Ereignisse</h3>
+        <pre><code>document.querySelector("#mein-modal")
+  .addEventListener("bit:modal:shown", () =&gt; {
+    console.log("ist offen");
+  });</code></pre>
+        <p class="bit-text-xs bit-muted">
+          Verfuegbar: <code>bit:modal:show</code>, <code>bit:modal:shown</code>,
+          <code>bit:modal:hide</code>, <code>bit:modal:hidden</code>.
+          Die <code>show</code>- und <code>hide</code>-Ereignisse lassen sich
+          mit <code>preventDefault()</code> abbrechen.
+        </p>
+      </section>
+
+      <section id="toast-api">
+        <h2>Toasts</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster">
+              <button class="bit-btn bit-btn--success"
+                onclick="Bitstrap.toast({title:'Gesichert',message:'Alles gespeichert.',variant:'success',icon:'check'})">Erfolg</button>
+              <button class="bit-btn bit-btn--danger"
+                onclick="Bitstrap.toast({title:'Fehler',message:'Verbindung verloren.',variant:'danger',icon:'skull'})">Fehler</button>
+              <button class="bit-btn"
+                onclick="Bitstrap.toast({title:'Links unten',position:'bottom-left',timeout:8000})">Position</button>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>Bitstrap.toast({
+  title:    "Item erhalten!",
+  message:  "Ein Pixel-Schwert.",
+  variant:  "success",      // success | warning | danger
+  icon:     "sword",        // beliebiger Iconname
+  position: "top-right",    // top-left | bottom-right | bottom-left | top-center
+  timeout:  4000,           // 0 = bleibt stehen
+  sound:    true
+});</code></pre>
+      </section>
+
+      <section id="typewriter">
+        <h2>Typewriter</h2>
+        <p>Der Text startet, sobald das Element ins Bild scrollt.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-dialog bit-frame bit-dialog--next">
+              <span class="bit-dialog__speaker">SYSTEM</span>
+              <p data-bit-typewriter data-bit-speed="40" class="bit-m-0">
+                Jedes Zeichen einzeln. Mit bleibt es still.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;p data-bit-typewriter data-bit-speed="40"&gt;Text...&lt;/p&gt;</code></pre>
+
+        <pre><code>Bitstrap.typewrite(document.querySelector("#dialog"));</code></pre>
+      </section>
+
+      <section id="progress-api">
+        <h2>Fortschritt setzen</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-progress bit-progress--segmented bit-mb-3" id="live-bar">
+              <span class="bit-progress__bar" style="width:20%"></span>
+            </div>
+            <div class="bit-cluster">
+              <button class="bit-btn bit-btn--sm" onclick="Bitstrap.progress('#live-bar', 20)">20%</button>
+              <button class="bit-btn bit-btn--sm" onclick="Bitstrap.progress('#live-bar', 60)">60%</button>
+              <button class="bit-btn bit-btn--sm bit-btn--success" onclick="Bitstrap.progress('#live-bar', 100)">100%</button>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>Bitstrap.progress("#live-bar", 60);</code></pre>
+        <p class="bit-text-xs bit-muted">
+          Setzt zugleich <code>aria-valuenow</code>, damit Screenreader den
+          Wert mitbekommen.
+        </p>
+      </section>
+
+      <section id="api">
+        <h2>API-Uebersicht</h2>
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped var-table">
+            <thead><tr><th>Aufruf</th><th>Bedeutung</th></tr></thead>
+            <tbody>
+              <tr><td><code>Bitstrap.init(ctx?)</code></td><td>ARIA nachruesten, z.B. nach Nachladen</td></tr>
+              <tr><td><code>Bitstrap.modal(sel)</code></td><td>Modal-Instanz</td></tr>
+              <tr><td><code>Bitstrap.toast(opts)</code></td><td>Toast zeigen</td></tr>
+              <tr><td><code>Bitstrap.tab(el)</code></td><td>Reiter aktivieren</td></tr>
+              <tr><td><code>Bitstrap.progress(sel, n)</code></td><td>Balken setzen</td></tr>
+              <tr><td><code>Bitstrap.theme.toggle()</code></td><td>hell/dunkel</td></tr>
+              <tr><td><code>Bitstrap.typewrite(el)</code></td><td>Text tippen lassen</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ohne-js">
+        <h2>Ohne JavaScript</h2>
+        <p>
+          Layout, Grid, alle Formularelemente, Karten, Tabellen, Badges,
+          Fortschrittsbalken, Dialogboxen und Tooltips funktionieren
+          vollstaendig ohne die JS-Datei. Nur Modal, Tabs, Accordion,
+          Dropdown, Toast, Typewriter und Sound brauchen sie.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

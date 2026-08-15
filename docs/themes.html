@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Themes & Anpassung · Bitstrap</title>
+<meta name="description" content="Bitstrap anpassen: Design-Tokens, fuenf mitgelieferte Themes, Dark Mode und eigene Farbwelten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="getting-started.html" data-i18n="nav.docs">Doku</a></li>
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="icons.html" data-i18n="nav.icons">Icons</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Themes & Anpassung</h1>
+      <p class="bit-lead">
+        Jedes Theme setzt ausschliesslich Variablen. Kein einziger
+        Komponenten-Selektor wird dabei angefasst.
+      </p>
+
+      <section id="ausprobieren">
+        <h2>Ausprobieren</h2>
+        <div class="bit-cluster bit-mb-4" data-theme-picker>
+          <button class="bit-btn bit-btn--sm is-active" data-theme-name="">Standard</button>
+          <button class="bit-btn bit-btn--sm" data-theme-name="arcade">Arcade</button>
+          <button class="bit-btn bit-btn--sm" data-theme-name="handheld">Handheld</button>
+          <button class="bit-btn bit-btn--sm" data-theme-name="terminal">Terminal</button>
+          <button class="bit-btn bit-btn--sm" data-theme-name="candy">Candy</button>
+        </div>
+
+        <div class="theme-preview bit-frame" data-theme-target>
+          <div class="bit-split bit-mb-4">
+            <strong>INVENTAR</strong>
+            <span class="bit-badge bit-badge--primary">LVL 8</span>
+          </div>
+          <div class="bit-progress bit-progress--segmented bit-mb-4">
+            <span class="bit-progress__bar" style="width:64%"></span>
+          </div>
+          <div class="bit-alert bit-alert--success bit-mb-4">
+            <div class="bit-alert__body">
+              <p class="bit-text-xs bit-m-0">Gegenstand aufgenommen.</p>
+            </div>
+          </div>
+          <ul class="bit-list bit-list--menu bit-frame bit-mb-4">
+            <li class="bit-list__item is-active">Benutzen</li>
+            <li class="bit-list__item">Ablegen</li>
+          </ul>
+          <div class="bit-cluster">
+            <button class="bit-btn bit-btn--sm bit-btn--primary">Bestaetigen</button>
+            <button class="bit-btn bit-btn--sm">Zurueck</button>
+            <input class="bit-input" style="width:auto" value="Text">
+          </div>
+        </div>
+
+        <p class="bit-text-xs bit-muted bit-mt-3">
+          Themes wirken auf jeden Container - hier liegt die Klasse nur auf
+          diesem Kasten, nicht auf der Seite. Verschachteln ist erlaubt.
+        </p>
+      </section>
+
+      <section id="anwenden">
+        <h2>Theme anwenden</h2>
+        <pre><code>&lt;body class="bit-theme-arcade"&gt;
+  ...
+&lt;/body&gt;
+
+&lt;!-- oder nur fuer einen Bereich --&gt;
+&lt;aside class="bit-theme-terminal"&gt;...&lt;/aside&gt;</code></pre>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped">
+            <thead><tr><th>Klasse</th><th>Charakter</th></tr></thead>
+            <tbody>
+              <tr><td><code>.bit-theme-arcade</code></td><td>Neon auf Violett</td></tr>
+              <tr><td><code>.bit-theme-handheld</code></td><td>monochromes LCD-Gruen</td></tr>
+              <tr><td><code>.bit-theme-terminal</code></td><td>Phosphorgruen auf Schwarz</td></tr>
+              <tr><td><code>.bit-theme-candy</code></td><td>helles Pastell</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="dark">
+        <h2>Dark Mode</h2>
+        <p>
+          Bitstrap folgt automatisch der Systemeinstellung. Eine bewusste
+          Wahl setzt du per Attribut auf <code>&lt;html&gt;</code>:
+        </p>
+        <pre><code>&lt;html data-bit-theme="dark"&gt;
+&lt;html data-bit-theme="light"&gt;</code></pre>
+
+        <p>Der Umschalter braucht nur ein Attribut - das JS erledigt den Rest samt Speicherung:</p>
+        <pre><code>&lt;button class="bit-btn" data-bit-toggle="theme"&gt;Umschalten&lt;/button&gt;</code></pre>
+
+        <p>Oder programmatisch:</p>
+        <pre><code>Bitstrap.theme.toggle();
+Bitstrap.theme.set("dark");
+Bitstrap.theme.get();</code></pre>
+      </section>
+
+      <section id="dichte">
+        <h2>Dichte</h2>
+        <p>
+          Die Pixel-Einheit bestimmt Rahmenstaerke, Abstaende, Icongroessen -
+          praktisch alles. Drei fertige Stufen:
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-density-compact bit-mb-4">
+              <button class="bit-btn bit-btn--primary">compact (3px)</button>
+            </div>
+            <div class="bit-mb-4">
+              <button class="bit-btn bit-btn--primary">Standard (4px)</button>
+            </div>
+            <div class="bit-density-large bit-mb-4">
+              <button class="bit-btn bit-btn--primary">large (5px)</button>
+            </div>
+            <div class="bit-density-arcade">
+              <button class="bit-btn bit-btn--primary">arcade (6px)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="eigenes-theme">
+        <h2>Eigenes Theme</h2>
+        <p>
+          Ein Theme besteht aus semantischen Tokens. Diese hier reichen fuer
+          ein vollstaendiges Erscheinungsbild:
+        </p>
+
+        <pre><code>.bit-theme-meins {
+  /* Flaechen und Text */
+  --bit-bg:          #1a1c2c;
+  --bit-surface:     #29366f;
+  --bit-surface-alt: #3b5dc9;
+  --bit-text:        #f4f4f4;
+  --bit-muted:       #94b0c2;
+  --bit-border:      #f4f4f4;
+  --bit-shadow-c:    rgba(0,0,0,.5);
+  --bit-focus:       #ffcd75;
+  --bit-overlay:     rgba(26,28,44,.85);
+
+  /* Bedeutungen - jeweils Farbe + Vordergrund */
+  --bit-primary:    #ef7d57;  --bit-primary-fg:  #1a1c2c;
+  --bit-secondary:  #3b5dc9;  --bit-secondary-fg:#f4f4f4;
+  --bit-success:    #a7f070;  --bit-success-fg:  #1a1c2c;
+  --bit-warning:    #ffcd75;  --bit-warning-fg:  #1a1c2c;
+  --bit-danger:     #b13e53;  --bit-danger-fg:   #f4f4f4;
+  --bit-info:       #41a6f6;  --bit-info-fg:     #1a1c2c;
+  --bit-dark:       #1a1c2c;  --bit-dark-fg:     #f4f4f4;
+  --bit-light:      #566c86;  --bit-light-fg:    #f4f4f4;
+}</code></pre>
+
+        <div class="bit-alert bit-alert--warning">
+          <span class="bit-icon bit-icon--sm bit-icon--shield"></span>
+          <div class="bit-alert__body">
+            <p class="bit-alert__title">Kontrast pruefen</p>
+            <p class="bit-text-xs bit-m-0">
+              Retro-Paletten sind oft grell und liegen im Kontrast dicht
+              beieinander. Pruefe jedes <code>*-fg</code>-Paar auf
+              mindestens 4,5:1 gegenueber seiner Flaeche - sonst wird die
+              Optik auf Kosten der Lesbarkeit erkauft.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tokens">
+        <h2>Wichtige Tokens</h2>
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped var-table">
+            <thead><tr><th>Token</th><th>Standard</th><th>Wirkung</th></tr></thead>
+            <tbody>
+              <tr><td><code>--bit-px</code></td><td>4px</td><td>Pixel-Einheit, skaliert alles</td></tr>
+              <tr><td><code>--bit-font</code></td><td>Press Start 2P, monospace</td><td>Schrift</td></tr>
+              <tr><td><code>--bit-font-body</code></td><td>= <code>--bit-font</code></td><td>Fliesstext getrennt setzbar</td></tr>
+              <tr><td><code>--bit-fs</code></td><td>12px</td><td>Grundschriftgroesse</td></tr>
+              <tr><td><code>--bit-lh</code></td><td>1.85</td><td>Zeilenhoehe</td></tr>
+              <tr><td><code>--bit-container</code></td><td>1180px</td><td>Containerbreite</td></tr>
+              <tr><td><code>--bit-gutter</code></td><td>24px</td><td>Grid-Abstand</td></tr>
+              <tr><td><code>--bit-dur</code></td><td>120ms</td><td>Uebergangsdauer</td></tr>
+              <tr><td><code>--bit-step</code></td><td>steps(4, end)</td><td>Stufige Animation statt Easing</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="palette">
+        <h2>Rohe Palette</h2>
+        <p>Unabhaengig vom Theme immer verfuegbar als <code>--bit-c-*</code>:</p>
+
+        <div class="bit-tiles" style="--bit-tile-min:110px">
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-red)"></span>red</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-orange)"></span>orange</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-amber)"></span>amber</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-gold)"></span>gold</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-lime)"></span>lime</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-green)"></span>green</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-forest)"></span>forest</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-teal)"></span>teal</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-blue)"></span>blue</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-navy)"></span>navy</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-purple)"></span>purple</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-pink)"></span>pink</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-ink)"></span>ink</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-steel)"></span>steel</div>
+          <div class="swatch"><span class="swatch__chip" style="background:var(--bit-c-paper)"></span>paper</div>
+        </div>
+
+        <p class="bit-text-xs bit-muted bit-mt-3">
+          Nutzbar als <code>.bit-text-gold</code>, <code>.bit-bg-navy</code>,
+          <code>.bit-border-pink</code> oder direkt per
+          <code>var(--bit-c-gold)</code>.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

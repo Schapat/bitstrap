@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layouts & Daten · Bitstrap</title>
+<meta name="description" content="App-Shell mit Sidebar, Drawer, Popover, Stepper, Carousel, sortierbare Tabellen, Kennzahlen, Zeitleisten und Skeletons.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="widgets.html" data-i18n="nav.widgets">Widgets</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Layouts & Daten</h1>
+      <p class="bit-lead">
+        Anwendungsgeruest, mehrstufige Abläufe und die Darstellung
+        echter Daten.
+      </p>
+
+      <p class="bit-text-xs bit-muted">
+        Diese Seite braucht das Zusatzmodul:
+        <code>&lt;script src="bitstrap-ui.js" defer&gt;&lt;/script&gt;</code>
+      </p>
+
+      <!-- ============ APP-SHELL ============ -->
+      <section id="app-shell">
+        <h2>App-Shell mit Sidebar</h2>
+        <p>
+          Kopfzeile, feste Seitenleiste, scrollender Inhalt. Ab 1024px
+          liegt die Leiste daneben, darunter verschwindet sie - dort
+          gehoert die Navigation in einen Drawer.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-shell bit-frame" style="min-height:280px;--bit-sidebar-w:180px">
+              <aside class="bit-shell__sidebar">
+                <ul class="bit-sidenav">
+                  <li class="bit-sidenav__heading">Allgemein</li>
+                  <li><a class="bit-sidenav__link is-active" href="#app-shell">
+                    <span class="bit-icon bit-icon--xs bit-icon--pad"></span> Uebersicht</a></li>
+                  <li><a class="bit-sidenav__link" href="#app-shell">
+                    <span class="bit-icon bit-icon--xs bit-icon--user"></span> Konto</a></li>
+                  <li class="bit-sidenav__heading">Daten</li>
+                  <li><a class="bit-sidenav__link" href="#app-shell">
+                    <span class="bit-icon bit-icon--xs bit-icon--gem"></span> Berichte</a></li>
+                </ul>
+              </aside>
+              <main class="bit-shell__main">
+                <div class="bit-toolbar bit-mb-4">
+                  <button class="bit-btn bit-btn--xs bit-hide-desktop" data-bit-toggle="drawer" data-bit-target="#nav-drawer">
+                    <span class="bit-icon bit-icon--xs bit-icon--menu"></span>
+                  </button>
+                  <strong class="bit-text-sm">Uebersicht</strong>
+                  <span class="bit-toolbar__spacer"></span>
+                  <button class="bit-btn bit-btn--xs bit-btn--primary">Neu</button>
+                </div>
+                <p class="bit-text-xs">
+                  Auf schmalen Schirmen oeffnet der Knopf links den Drawer.
+                </p>
+              </main>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class="bit-shell"&gt;
+  &lt;aside class="bit-shell__sidebar"&gt;
+    &lt;ul class="bit-sidenav"&gt;
+      &lt;li class="bit-sidenav__heading"&gt;Allgemein&lt;/li&gt;
+      &lt;li&gt;&lt;a class="bit-sidenav__link is-active" href="#"&gt;Uebersicht&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+  &lt;main class="bit-shell__main"&gt;...&lt;/main&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- ============ DRAWER ============ -->
+      <section id="drawer">
+        <h2>Drawer</h2>
+        <p>
+          Faehrt von einer Bildschirmkante ein. Anders als das Modal
+          bleibt der Inhalt dahinter sichtbar.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster">
+              <button class="bit-btn bit-btn--primary" data-bit-toggle="drawer" data-bit-target="#nav-drawer">Von links</button>
+              <button class="bit-btn" data-bit-toggle="drawer" data-bit-target="#filter-drawer">Von rechts</button>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;button data-bit-toggle="drawer" data-bit-target="#menu"&gt;Menue&lt;/button&gt;
+
+&lt;div class="bit-drawer" id="menu"&gt;
+  &lt;div class="bit-drawer__backdrop"&gt;&lt;/div&gt;
+  &lt;div class="bit-drawer__panel"&gt;
+    &lt;div class="bit-drawer__header"&gt;
+      &lt;h3 class="bit-drawer__title"&gt;Menue&lt;/h3&gt;
+      &lt;button data-bit-dismiss="drawer"&gt;x&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="bit-drawer__body"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <p class="bit-text-xs bit-muted">
+          Varianten: <code>.bit-drawer--right</code>,
+          <code>.bit-drawer--bottom</code>. Escape und Klick auf den
+          Hintergrund schliessen; der Fokus bleibt im Panel gefangen und
+          kehrt danach zum Ausloeser zurueck.
+        </p>
+      </section>
+
+      <!-- ============ POPOVER ============ -->
+      <section id="popover">
+        <h2>Popover</h2>
+        <p>
+          Wie ein Tooltip, aber per Klick und mit beliebigem Inhalt. Die
+          Position wird berechnet, damit der Kasten am Bildschirmrand
+          nicht abgeschnitten wird.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-split">
+              <button class="bit-btn" data-bit-toggle="popover" data-bit-target="#pop1" aria-expanded="false">Links</button>
+              <button class="bit-btn" data-bit-toggle="popover" data-bit-target="#pop2" aria-expanded="false">Rechts am Rand</button>
+            </div>
+            <div class="bit-popover" id="pop1">
+              <p class="bit-popover__title">Hinweis</p>
+              <p class="bit-m-0">Beliebiger Inhalt, auch Knoepfe.</p>
+            </div>
+            <div class="bit-popover" id="pop2">
+              <p class="bit-popover__title">Auch hier</p>
+              <p class="bit-m-0">Der Kasten bleibt im sichtbaren Bereich.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ STEPPER ============ -->
+      <section id="stepper">
+        <h2>Stepper</h2>
+        <p>Mehrstufige Formulare mit Fortschrittsanzeige und Pruefung je Schritt.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-stepper-host">
+              <ol class="bit-stepper">
+                <li class="bit-stepper__step">Konto</li>
+                <li class="bit-stepper__step">Adresse</li>
+                <li class="bit-stepper__step">Pruefen</li>
+              </ol>
+
+              <div class="bit-step-panel" data-bit-validate>
+                <div class="bit-field">
+                  <label class="bit-label bit-label--required" for="st1">E-Mail</label>
+                  <input class="bit-input" id="st1" type="email" required>
+                </div>
+              </div>
+
+              <div class="bit-step-panel" hidden>
+                <div class="bit-field">
+                  <label class="bit-label" for="st2">Stadt</label>
+                  <input class="bit-input" id="st2" type="text">
+                </div>
+              </div>
+
+              <div class="bit-step-panel" hidden>
+                <p class="bit-text-xs">Alles bereit zum Absenden.</p>
+              </div>
+
+              <div class="bit-cluster bit-mt-4">
+                <button class="bit-btn bit-btn--sm" data-bit-step="prev">Zurueck</button>
+                <button class="bit-btn bit-btn--sm bit-btn--primary" data-bit-step="next">Weiter</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="bit-text-xs bit-muted">
+          Ein Panel mit <code>data-bit-validate</code> laesst den Schritt
+          erst weiterspringen, wenn seine Felder gueltig sind.
+        </p>
+      </section>
+
+      <!-- ============ CAROUSEL ============ -->
+      <section id="carousel">
+        <h2>Carousel</h2>
+        <p>
+          Basiert auf Scroll-Snap statt auf JavaScript-Transformationen:
+          funktioniert auch ohne das Modul, laesst sich wischen und
+          bleibt mit der Tastatur scrollbar.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-carousel" style="--bit-slide-w:60%">
+              <div class="bit-carousel__track">
+                <div class="bit-carousel__slide">
+                  <div class="bit-card bit-frame"><div class="bit-card__body">Erste Folie</div></div>
+                </div>
+                <div class="bit-carousel__slide">
+                  <div class="bit-card bit-frame"><div class="bit-card__body">Zweite Folie</div></div>
+                </div>
+                <div class="bit-carousel__slide">
+                  <div class="bit-card bit-frame"><div class="bit-card__body">Dritte Folie</div></div>
+                </div>
+              </div>
+              <div class="bit-carousel__nav">
+                <button class="bit-btn bit-btn--xs" data-bit-slide="prev" aria-label="Zurueck">&lt;</button>
+                <ul class="bit-carousel__dots">
+                  <li><button class="bit-carousel__dot is-active" data-bit-slide="0" aria-label="Folie 1"></button></li>
+                  <li><button class="bit-carousel__dot" data-bit-slide="1" aria-label="Folie 2"></button></li>
+                  <li><button class="bit-carousel__dot" data-bit-slide="2" aria-label="Folie 3"></button></li>
+                </ul>
+                <button class="bit-btn bit-btn--xs" data-bit-slide="next" aria-label="Weiter">&gt;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ DATENTABELLE ============ -->
+      <section id="datatable">
+        <h2>Sortierbare Tabelle</h2>
+        <p>Klick auf einen Spaltenkopf sortiert; das Feld darueber filtert.</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <label class="bit-search bit-mb-3">
+              <span class="bit-icon bit-icon--xs bit-icon--search bit-search__icon"></span>
+              <input class="bit-input" type="search" placeholder="Filtern..."
+                     data-bit-filter="#dt" data-bit-filter-empty="#dt-empty" aria-label="Tabelle filtern">
+            </label>
+
+            <div class="bit-table-wrap">
+              <table class="bit-table bit-table--striped bit-table--sortable" id="dt">
+                <thead>
+                  <tr>
+                    <th data-bit-sort="text">Name</th>
+                    <th data-bit-sort="number">Punkte</th>
+                    <th data-bit-sort="date">Datum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Anna</td><td>128500</td><td data-bit-value="2026-03-04">04.03.2026</td></tr>
+                  <tr><td>Bjoern</td><td>96200</td><td data-bit-value="2026-01-19">19.01.2026</td></tr>
+                  <tr><td>Clara</td><td>181050</td><td data-bit-value="2026-07-28">28.07.2026</td></tr>
+                  <tr><td>Dilan</td><td>44300</td><td data-bit-value="2025-11-02">02.11.2025</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="bit-empty" id="dt-empty" hidden>
+              <span class="bit-icon bit-icon--lg bit-icon--search"></span>
+              <p class="bit-empty__title">Nichts gefunden</p>
+              <p class="bit-empty__text">Andere Suchbegriffe ausprobieren.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="bit-text-xs bit-muted">
+          <code>data-bit-sort</code> nimmt <code>text</code>,
+          <code>number</code> oder <code>date</code>. Mit
+          <code>data-bit-value</code> an einer Zelle sortiert man nach
+          einem anderen Wert als dem angezeigten - hier nach ISO-Datum
+          unter deutscher Schreibweise.
+        </p>
+      </section>
+
+      <!-- ============ KENNZAHLEN ============ -->
+      <section id="kennzahlen">
+        <h2>Kennzahlen & Meter</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-tiles bit-mb-4" style="--bit-tile-min:180px">
+              <div class="bit-stat bit-frame bit-stat--accent">
+                <span class="bit-stat__label">Besuche</span>
+                <span class="bit-stat__value" data-bit-count="8420">0</span>
+                <span class="bit-stat__delta bit-stat__delta--up">+12% zur Vorwoche</span>
+              </div>
+              <div class="bit-stat bit-frame">
+                <span class="bit-stat__label">Fehlerrate</span>
+                <span class="bit-stat__value">0,4%</span>
+                <span class="bit-stat__delta bit-stat__delta--down">-2% zur Vorwoche</span>
+              </div>
+            </div>
+
+            <div class="bit-stack">
+              <div class="bit-meter bit-frame">
+                <div class="bit-meter__head">
+                  <span>Speicher</span>
+                  <span class="bit-meter__value">64%</span>
+                </div>
+                <span class="bit-meter__track"><span class="bit-meter__fill" style="width:64%"></span></span>
+              </div>
+              <div class="bit-meter bit-frame bit-meter--danger">
+                <div class="bit-meter__head">
+                  <span>Auslastung</span>
+                  <span class="bit-meter__value">92%</span>
+                </div>
+                <span class="bit-meter__track"><span class="bit-meter__fill" style="width:92%"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="bit-text-xs bit-muted">
+          <code>data-bit-count</code> zaehlt den Wert beim Laden hoch.
+          Programmatisch: <code>Bitstrap.countTo(el, 8420)</code>.
+        </p>
+      </section>
+
+      <!-- ============ ZEITLEISTE & BAUM ============ -->
+      <section id="timeline">
+        <h2>Zeitleiste & Baumansicht</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-row">
+              <div class="bit-col bit-col-md-6">
+                <ol class="bit-timeline">
+                  <li class="bit-timeline__item bit-timeline__item--success">
+                    <span class="bit-timeline__marker"></span>
+                    <span class="bit-timeline__time">14:02</span>
+                    <h4 class="bit-timeline__title">Deploy erfolgreich</h4>
+                    <p class="bit-timeline__body bit-m-0">Version 1.1.0 ist live.</p>
+                  </li>
+                  <li class="bit-timeline__item">
+                    <span class="bit-timeline__marker"></span>
+                    <span class="bit-timeline__time">13:47</span>
+                    <h4 class="bit-timeline__title">Tests bestanden</h4>
+                  </li>
+                  <li class="bit-timeline__item bit-timeline__item--muted">
+                    <span class="bit-timeline__marker"></span>
+                    <span class="bit-timeline__time">13:40</span>
+                    <h4 class="bit-timeline__title">Build gestartet</h4>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="bit-col bit-col-md-6">
+                <ul class="bit-tree">
+                  <li class="bit-tree__item is-open">
+                    <button class="bit-tree__row"><span class="bit-tree__caret"></span> src</button>
+                    <ul class="bit-tree__children">
+                      <li class="bit-tree__item bit-tree__item--leaf">
+                        <button class="bit-tree__row"><span class="bit-tree__caret"></span> tokens.css</button>
+                      </li>
+                      <li class="bit-tree__item">
+                        <button class="bit-tree__row"><span class="bit-tree__caret"></span> components</button>
+                        <ul class="bit-tree__children" hidden>
+                          <li class="bit-tree__item bit-tree__item--leaf">
+                            <button class="bit-tree__row"><span class="bit-tree__caret"></span> card.css</button>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKELETON ============ -->
+      <section id="skeleton">
+        <h2>Skeleton & Leerzustand</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-row">
+              <div class="bit-col bit-col-md-6">
+                <div class="bit-card bit-frame">
+                  <div class="bit-card__body">
+                    <span class="bit-skeleton bit-skeleton--title"></span>
+                    <span class="bit-skeleton bit-skeleton--text"></span>
+                    <span class="bit-skeleton bit-skeleton--text"></span>
+                    <span class="bit-skeleton bit-skeleton--text"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="bit-col bit-col-md-6">
+                <div class="bit-empty bit-frame">
+                  <span class="bit-icon bit-icon--xl bit-icon--ghost"></span>
+                  <p class="bit-empty__title">Noch nichts hier</p>
+                  <p class="bit-empty__text">Lege den ersten Eintrag an, dann fuellt sich diese Ansicht.</p>
+                  <button class="bit-btn bit-btn--sm bit-btn--primary">Eintrag anlegen</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- Drawer -->
+<div class="bit-drawer" id="nav-drawer">
+  <div class="bit-drawer__backdrop"></div>
+  <div class="bit-drawer__panel">
+    <div class="bit-drawer__header">
+      <h3 class="bit-drawer__title">Navigation</h3>
+      <button class="bit-btn bit-btn--bare bit-btn--xs" data-bit-dismiss="drawer" aria-label="Schliessen">
+        <span class="bit-icon bit-icon--xs bit-icon--cross"></span>
+      </button>
+    </div>
+    <div class="bit-drawer__body">
+      <ul class="bit-sidenav">
+        <li class="bit-sidenav__heading">Allgemein</li>
+        <li><a class="bit-sidenav__link is-active" href="#app-shell">Uebersicht</a></li>
+        <li><a class="bit-sidenav__link" href="#datatable">Berichte</a></li>
+        <li><a class="bit-sidenav__link" href="#stepper">Einstellungen</a></li>
+      </ul>
+    </div>
+    <div class="bit-drawer__footer">
+      <button class="bit-btn bit-btn--sm bit-btn--block" data-bit-dismiss="drawer">Schliessen</button>
+    </div>
+  </div>
+</div>
+
+<div class="bit-drawer bit-drawer--right" id="filter-drawer">
+  <div class="bit-drawer__backdrop"></div>
+  <div class="bit-drawer__panel">
+    <div class="bit-drawer__header">
+      <h3 class="bit-drawer__title">Filter</h3>
+      <button class="bit-btn bit-btn--bare bit-btn--xs" data-bit-dismiss="drawer" aria-label="Schliessen">
+        <span class="bit-icon bit-icon--xs bit-icon--cross"></span>
+      </button>
+    </div>
+    <div class="bit-drawer__body">
+      <label class="bit-check bit-mb-3">
+        <input type="checkbox" checked>
+        <span class="bit-check__box"></span>
+        <span class="bit-check__label bit-text-xs">Nur aktive</span>
+      </label>
+      <label class="bit-check">
+        <input type="checkbox">
+        <span class="bit-check__box"></span>
+        <span class="bit-check__label bit-text-xs">Archiv einschliessen</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../vendor/bitstrap-ui.js"></script>
+<script src="../vendor/bitstrap-forms.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

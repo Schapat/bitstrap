@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout & Grid · Bitstrap</title>
+<meta name="description" content="Container, 12-Spalten-Grid, Stack, Cluster und die Abstands-Utilities von Bitstrap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+<style>
+  /* Nur zur Veranschaulichung der Spalten auf dieser Seite. */
+  .demo-col {
+    padding: var(--bit-px-3);
+    background-color: var(--bit-info);
+    color: var(--bit-info-fg);
+    font-size: var(--bit-fs-xs);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="icons.html" data-i18n="nav.icons">Icons</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Layout & Grid</h1>
+      <p class="bit-lead">
+        Zwoelf Spalten auf CSS-Grid-Basis, dazu zwei Kurzformen fuer die
+        Faelle, in denen ein Grid uebertrieben waere.
+      </p>
+
+      <section id="container">
+        <h2>Container</h2>
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped">
+            <thead><tr><th>Klasse</th><th>Maximale Breite</th></tr></thead>
+            <tbody>
+              <tr><td><code>.bit-container</code></td><td>1180px (<code>--bit-container</code>)</td></tr>
+              <tr><td><code>.bit-container--narrow</code></td><td>760px</td></tr>
+              <tr><td><code>.bit-container--wide</code></td><td>1440px</td></tr>
+              <tr><td><code>.bit-container-fluid</code></td><td>volle Breite</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="grid">
+        <h2>Das 12-Spalten-Grid</h2>
+        <p>
+          <code>.bit-row</code> ist das Grid, <code>.bit-col-*</code> die
+          Spannweite. Ohne Zahl fuellt eine Spalte die volle Breite.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-row bit-mb-3">
+              <div class="bit-col-12"><div class="demo-col">12</div></div>
+            </div>
+            <div class="bit-row bit-mb-3">
+              <div class="bit-col-6"><div class="demo-col">6</div></div>
+              <div class="bit-col-6"><div class="demo-col">6</div></div>
+            </div>
+            <div class="bit-row bit-mb-3">
+              <div class="bit-col-4"><div class="demo-col">4</div></div>
+              <div class="bit-col-4"><div class="demo-col">4</div></div>
+              <div class="bit-col-4"><div class="demo-col">4</div></div>
+            </div>
+            <div class="bit-row">
+              <div class="bit-col-3"><div class="demo-col">3</div></div>
+              <div class="bit-col-9"><div class="demo-col">9</div></div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Breakpoints</h3>
+        <p>
+          Mobil zuerst: <code>.bit-col-12 .bit-col-md-4</code> heisst
+          volle Breite auf dem Telefon, ein Drittel ab Tablet.
+        </p>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped">
+            <thead><tr><th>Praefix</th><th>Ab Breite</th></tr></thead>
+            <tbody>
+              <tr><td><code>.bit-col-*</code></td><td>immer</td></tr>
+              <tr><td><code>.bit-col-sm-*</code></td><td>480px</td></tr>
+              <tr><td><code>.bit-col-md-*</code></td><td>768px</td></tr>
+              <tr><td><code>.bit-col-lg-*</code></td><td>1024px</td></tr>
+              <tr><td><code>.bit-col-xl-*</code></td><td>1280px</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-row">
+              <div class="bit-col-12 bit-col-md-4"><div class="demo-col">12 / md-4</div></div>
+              <div class="bit-col-12 bit-col-md-4"><div class="demo-col">12 / md-4</div></div>
+              <div class="bit-col-12 bit-col-md-4"><div class="demo-col">12 / md-4</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack">
+        <h2>Stack, Cluster, Split, Tiles</h2>
+        <p>Vier Muster, die den Grossteil des Alltags abdecken:</p>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped">
+            <thead><tr><th>Klasse</th><th>Wofuer</th></tr></thead>
+            <tbody>
+              <tr><td><code>.bit-stack</code></td><td>Elemente untereinander mit gleichem Abstand</td></tr>
+              <tr><td><code>.bit-cluster</code></td><td>Elemente nebeneinander, brechen um</td></tr>
+              <tr><td><code>.bit-split</code></td><td>links und rechts auseinandergezogen</td></tr>
+              <tr><td><code>.bit-tiles</code></td><td>Kacheln, die sich selbst umbrechen</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-split bit-frame bit-p-3 bit-bg-surface bit-mb-4">
+              <strong>SPIELSTAND 1</strong>
+              <span class="bit-badge bit-badge--success">12:04</span>
+            </div>
+
+            <div class="bit-tiles" style="--bit-tile-min:150px">
+              <div class="demo-col">Kachel</div>
+              <div class="demo-col">Kachel</div>
+              <div class="demo-col">Kachel</div>
+              <div class="demo-col">Kachel</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="abstaende">
+        <h2>Abstands-Utilities</h2>
+        <p>
+          Schema: <code>.bit-{m|p}{Richtung}-{Stufe}</code>. Die Stufen sind
+          Vielfache der Pixel-Einheit, keine festen Pixelwerte - aendert sich
+          <code>--bit-px</code>, skalieren alle Abstaende mit.
+        </p>
+
+        <div class="bit-row">
+          <div class="bit-col bit-col-md-6">
+            <p class="bit-text-sm"><strong>Richtungen</strong></p>
+            <ul class="bit-ul bit-text-xs">
+              <li><code>m</code> / <code>p</code> - alle Seiten</li>
+              <li><code>mt mr mb ml</code> - einzelne Seite</li>
+              <li><code>mx my</code> - Achse</li>
+            </ul>
+          </div>
+          <div class="bit-col bit-col-md-6">
+            <p class="bit-text-sm"><strong>Stufen</strong></p>
+            <p class="bit-text-xs">
+              0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16 -
+              also <code>0</code> bis <code>64px</code> bei Standardgroesse.
+              Dazu <code>.bit-gap-*</code> und <code>.bit-m-auto</code>.
+            </p>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class="bit-mt-6 bit-px-4 bit-gap-3"&gt;...&lt;/div&gt;</code></pre>
+      </section>
+
+      <section id="hilfsklassen">
+        <h2>Weitere Utilities</h2>
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped">
+            <thead><tr><th>Gruppe</th><th>Klassen</th></tr></thead>
+            <tbody>
+              <tr><td>Anzeige</td><td><code>.bit-flex .bit-grid .bit-hidden .bit-block</code></td></tr>
+              <tr><td>Flexbox</td><td><code>.bit-items-center .bit-justify-between .bit-flex-col</code></td></tr>
+              <tr><td>Text</td><td><code>.bit-text-center .bit-text-sm .bit-truncate .bit-uppercase</code></td></tr>
+              <tr><td>Farbe</td><td><code>.bit-text-primary .bit-bg-dark .bit-border-danger</code></td></tr>
+              <tr><td>Sichtbarkeit</td><td><code>.bit-hide-mobile .bit-hide-desktop .bit-no-print</code></td></tr>
+              <tr><td>Barrierefrei</td><td><code>.bit-sr-only .bit-skip-link</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

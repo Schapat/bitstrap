@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation · Bitstrap</title>
+<meta name="description" content="Bitstrap einbinden: per CDN, als Datei oder ueber npm. Inklusive Schrift-Einrichtung und Aufbau des Frameworks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="icons.html" data-i18n="nav.icons">Icons</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Installation</h1>
+      <p class="bit-lead">
+        Bitstrap ist eine CSS-Datei und eine optionale JS-Datei. Mehr braucht es nicht.
+      </p>
+
+      <section id="einbinden">
+        <h2>Einbinden</h2>
+
+        <h3>Variante 1: Datei herunterladen</h3>
+        <p>Die einfachste Variante. Beide Dateien aus <code>dist/</code> neben deine Seite legen:</p>
+        <pre><code>&lt;link rel="stylesheet" href="bitstrap.min.css"&gt;
+&lt;script src="bitstrap.min.js" defer&gt;&lt;/script&gt;</code></pre>
+
+        <h3>Variante 2: npm</h3>
+        <pre><code>npm install bitstrap</code></pre>
+        <p>Danach im Projekt:</p>
+        <pre><code>import "bitstrap/css";
+import "bitstrap";</code></pre>
+
+        <h3>Variante 3: Quellen einzeln</h3>
+        <p>
+          Wer nur Teile braucht, bindet die Dateien aus <code>src/</code> direkt ein.
+          <code>00-tokens.css</code> muss immer zuerst kommen, alles andere
+          ist voneinander unabhaengig.
+        </p>
+        <pre><code>@import "bitstrap/src/00-tokens.css";
+@import "bitstrap/src/01-base.css";
+@import "bitstrap/src/04-buttons.css";</code></pre>
+      </section>
+
+      <section id="schrift">
+        <h2>Die Schrift</h2>
+        <p>
+          Bitstrap liefert bewusst <strong>keine</strong> Schriftdatei mit -
+          das haelt das Paket klein und vermeidet Lizenzfragen. Ohne
+          Pixelschrift faellt das Framework auf Monospace zurueck und
+          funktioniert vollstaendig, sieht aber weniger nach 1988 aus.
+        </p>
+
+        <p>Empfohlen ist <em>Press Start 2P</em> (SIL Open Font License):</p>
+        <pre><code>&lt;link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap"
+      rel="stylesheet"&gt;</code></pre>
+
+        <p>Eine andere Schrift setzt du ueber eine einzige Variable:</p>
+        <pre><code>:root {
+  --bit-font: "Silkscreen", monospace;
+}</code></pre>
+
+        <div class="bit-alert bit-alert--warning">
+          <span class="bit-icon bit-icon--sm bit-icon--bolt"></span>
+          <div class="bit-alert__body">
+            <p class="bit-alert__title">Pixelschriften sind breit</p>
+            <p class="bit-text-xs bit-m-0">
+              Rechne mit etwa der doppelten Textbreite gegenueber einer
+              normalen Schrift. Kurze Beschriftungen funktionieren, lange
+              Fliesstexte werden schnell anstrengend - dafuer gibt es
+              <code>--bit-font-body</code>, das du getrennt setzen kannst.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="erstes-beispiel">
+        <h2>Erstes Beispiel</h2>
+        <p>Eine vollstaendige Seite mit Bitstrap:</p>
+        <pre><code>&lt;!doctype html&gt;
+&lt;html lang="de"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;link rel="stylesheet" href="bitstrap.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="bit-container bit-section"&gt;
+    &lt;h1&gt;Hallo Welt&lt;/h1&gt;
+    &lt;div class="bit-card bit-shadow"&gt;
+      &lt;div class="bit-card__body"&gt;
+        &lt;p&gt;Das war es schon.&lt;/p&gt;
+        &lt;button class="bit-btn bit-btn--primary"&gt;Start&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script src="bitstrap.min.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-card bit-shadow">
+              <div class="bit-card__body">
+                <p>Das war es schon.</p>
+                <button class="bit-btn bit-btn--primary">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="namensschema">
+        <h2>Namensschema</h2>
+        <p>
+          Alle Klassen beginnen mit <code>bit-</code>. Damit kollidiert
+          Bitstrap mit keinem anderen Framework - du kannst es auch
+          nur fuer einen Teilbereich einer bestehenden Seite einsetzen.
+        </p>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped">
+            <thead>
+              <tr><th>Muster</th><th>Bedeutung</th><th>Beispiel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>.bit-block</code></td><td>Komponente</td><td><code>.bit-card</code></td></tr>
+              <tr><td><code>.bit-block__teil</code></td><td>Bestandteil</td><td><code>.bit-card__header</code></td></tr>
+              <tr><td><code>.bit-block--art</code></td><td>Variante</td><td><code>.bit-btn--primary</code></td></tr>
+              <tr><td><code>.is-zustand</code></td><td>Zustand (auch per JS)</td><td><code>.is-open</code></td></tr>
+              <tr><td><code>--bit-name</code></td><td>Design-Token</td><td><code>--bit-primary</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="aufbau">
+        <h2>Wie das Pixel-Frame funktioniert</h2>
+        <p>
+          Die abgetreppten Ecken sind der Kern des Looks. Sie entstehen nicht
+          durch Bilder, sondern durch vier versetzte Schatten - je einer pro
+          Kante. Weil die Ecken dabei ausgespart bleiben, ergibt sich die
+          typische 8-Bit-Silhouette:
+        </p>
+
+        <pre><code>box-shadow:
+  0  -4px 0 0 #1f1d36,   /* oben   */
+  0   4px 0 0 #1f1d36,   /* unten  */
+  -4px  0 0 0 #1f1d36,   /* links  */
+   4px  0 0 0 #1f1d36;   /* rechts */</code></pre>
+
+        <p>
+          Jede Komponente steuert das ueber Variablen, du musst die Schatten
+          also nie selbst schreiben:
+        </p>
+
+        <div class="bit-table-wrap">
+          <table class="bit-table bit-table--striped var-table">
+            <thead><tr><th>Variable</th><th>Wirkung</th></tr></thead>
+            <tbody>
+              <tr><td><code>--bit-fw</code></td><td>Rahmenstaerke</td></tr>
+              <tr><td><code>--bit-fc</code></td><td>Rahmenfarbe</td></tr>
+              <tr><td><code>--bit-fhl</code></td><td>innere Lichtkante oben</td></tr>
+              <tr><td><code>--bit-fsh</code></td><td>innere Schattenkante unten</td></tr>
+              <tr><td><code>--bit-fdx/fdy/fdc</code></td><td>versetzter Schlagschatten</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Die Klasse <code>.bit-frame</code> macht jedes beliebige Element zur Pixel-Box:</p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-frame bit-p-4 bit-bg-surface bit-mb-3">Ein Rahmen.</div>
+            <div class="bit-frame bit-shadow bit-p-4 bit-bg-surface bit-mb-3">Mit Schlagschatten.</div>
+            <div class="bit-frame bit-frame--double bit-p-4 bit-bg-surface" style="--bit-fc:var(--bit-primary)">Doppelt und farbig.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="browser">
+        <h2>Browser-Unterstuetzung</h2>
+        <p>
+          Alle aktuellen Browser. Bitstrap nutzt Custom Properties, CSS Grid
+          und <code>mask-image</code> - alles seit 2023 flaechendeckend
+          verfuegbar. Ohne JavaScript funktionieren Layout, alle Komponenten
+          und die Tooltips; nur Modal, Tabs, Accordion, Dropdown, Toast und
+          Sound brauchen die JS-Datei.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

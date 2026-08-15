@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spiel-UI · Bitstrap</title>
+<meta name="description" content="Optionale Spiel-Komponenten von Bitstrap: Inventar, HUD, Tastenhinweise, Seltenheitsstufen, Banner und Ladebildschirm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="widgets.html" data-i18n="nav.widgets">Widgets</a></li>
+        <li><a class="bit-navbar__link" href="layouts.html" data-i18n="nav.layouts">Layouts</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Spiel-UI</h1>
+      <p class="bit-lead">
+        Eine optionale Ebene fuer Projekte, die den Retro-Look bis ins
+        Bedienkonzept ziehen: Browserspiele, Portfolios, Landingpages.
+      </p>
+
+      <div class="bit-alert bit-alert--warning">
+        <span class="bit-icon bit-icon--sm bit-icon--bolt"></span>
+        <div class="bit-alert__body">
+          <p class="bit-alert__title">Fuer normale Webseiten nicht noetig</p>
+          <p class="bit-text-xs bit-m-0">
+            Diese Komponenten sind Beiwerk, kein Kern. Wer eine
+            gewoehnliche Anwendung baut, kommt mit
+            <a href="components.html" data-i18n="nav.components">Komponenten</a>,
+            <a href="widgets.html" data-i18n="nav.widgets">Widgets</a> und
+            <a href="layouts.html" data-i18n="nav.layouts">Layouts</a> vollstaendig aus. Wer das
+            Gewicht sparen will, laesst beim eigenen Build
+            <code>13-game.css</code> aus der Dateiliste weg.
+          </p>
+        </div>
+      </div>
+
+      <section id="inventar">
+        <h2>Inventar & Seltenheit</h2>
+        <p>
+          Gleich grosse Faecher, die sich selbst umbrechen. Die
+          Seltenheitsklassen faerben den Rahmen und lassen sich auch auf
+          Karten und Badges anwenden.
+        </p>
+
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <ul class="bit-inventory" style="--bit-slot-size:52px">
+              <li class="bit-slot bit-rarity-legendary">
+                <span class="bit-icon bit-icon--sm bit-icon--sword"></span>
+                <span class="bit-slot__count">1</span>
+              </li>
+              <li class="bit-slot bit-rarity-epic">
+                <span class="bit-icon bit-icon--sm bit-icon--gem"></span>
+                <span class="bit-slot__count">4</span>
+              </li>
+              <li class="bit-slot bit-rarity-rare">
+                <span class="bit-icon bit-icon--sm bit-icon--shield"></span>
+              </li>
+              <li class="bit-slot bit-rarity-uncommon is-selected">
+                <span class="bit-icon bit-icon--sm bit-icon--potion"></span>
+                <span class="bit-slot__count">12</span>
+              </li>
+              <li class="bit-slot bit-rarity-common">
+                <span class="bit-icon bit-icon--sm bit-icon--key"></span>
+              </li>
+              <li class="bit-slot bit-slot--empty"></li>
+              <li class="bit-slot bit-slot--empty"></li>
+              <li class="bit-slot bit-slot--empty"></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="hud">
+        <h2>HUD & Zaehlwerk</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-hud">
+              <span class="bit-hud__group">
+                <span class="bit-hud__label">LEBEN</span>
+                <span class="bit-hearts">
+                  <span class="bit-icon bit-icon--sm bit-icon--heart"></span>
+                  <span class="bit-icon bit-icon--sm bit-icon--heart"></span>
+                  <span class="bit-icon bit-icon--sm bit-icon--heart is-empty"></span>
+                </span>
+              </span>
+              <span class="bit-hud__group">
+                <span class="bit-icon bit-icon--sm bit-icon--coin" style="color:var(--bit-c-gold)"></span>
+                <span class="bit-hud__value" data-bit-count="248" data-bit-pad="4">0000</span>
+              </span>
+              <span class="bit-hud__group">
+                <span class="bit-hud__label">PUNKTE</span>
+                <span class="bit-hud__value" data-bit-count="13750" data-bit-pad="6">000000</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <p class="bit-text-xs bit-muted">
+          <code>data-bit-pad</code> fuellt mit Nullen auf. Die Ziffern
+          haben feste Breite, damit die Leiste beim Hochzaehlen nicht
+          springt.
+        </p>
+      </section>
+
+      <section id="tasten">
+        <h2>Tastenhinweise</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-prompts">
+              <span class="bit-prompt"><span class="bit-key bit-key--round">A</span> Bestaetigen</span>
+              <span class="bit-prompt"><span class="bit-key bit-key--round">B</span> Zurueck</span>
+              <span class="bit-prompt"><span class="bit-key">ESC</span> Menue</span>
+              <span class="bit-prompt"><span class="bit-key bit-key--wide">LEERTASTE</span> Springen</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="banner">
+        <h2>Banner, Portrait, Ladebildschirm</h2>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-banner bit-mb-4">
+              <p class="bit-banner__title">STUFE 9</p>
+              <p class="bit-banner__sub">Ausdauer +2 · Neue Faehigkeit freigeschaltet</p>
+            </div>
+
+            <div class="bit-portrait bit-frame bit-rarity-epic bit-mb-4">
+              <span class="bit-portrait__frame">
+                <span class="bit-icon bit-icon--lg bit-icon--user"></span>
+              </span>
+              <span class="bit-portrait__body">
+                <strong class="bit-portrait__name">HELDIN</strong>
+                <span class="bit-portrait__meta">Magierin · Stufe 9</span>
+                <span class="bit-progress bit-progress--segmented bit-mt-2" style="height:8px">
+                  <span class="bit-progress__bar" style="width:40%"></span>
+                </span>
+              </span>
+            </div>
+
+            <div class="bit-splash bit-crt" style="--bit-splash-h:200px">
+              <h3 class="bit-splash__title">BITSTRAP</h3>
+              <span class="bit-dots"><span></span><span></span><span></span></span>
+              <p class="bit-splash__hint bit-blink">LADEN...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../vendor/bitstrap-ui.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

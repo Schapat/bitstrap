@@ -1,0 +1,588 @@
+/* ==========================================================================
+   Bitstrap · Website
+   Ausschliesslich Seiten-Layout. Alle Komponenten kommen aus
+   vendor/bitstrap.css - einer Kopie des gebauten Frameworks.
+   ========================================================================== */
+
+body {
+  min-height: 100vh;
+}
+
+/* ---- Kopfzeile ----------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background-color: var(--bit-surface);
+  border-bottom: var(--bit-px) solid var(--bit-border);
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bit-px-2);
+  font-size: var(--bit-fs-lg);
+  color: var(--bit-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-logo b {
+  font-weight: 400;
+  color: var(--bit-primary);
+}
+
+/* ---- Sprachumschalter ---------------------------------------------------- */
+.lang-picker {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Nur Breite und Innenabstand anpassen. Die Pfeilposition kommt aus
+   .bit-select und darf hier nicht ueberschrieben werden - der Pfeil
+   besteht aus drei Ebenen, eine verkuerzte Liste liesse die dritte in
+   der Ecke liegen. */
+.lang-picker select {
+  width: auto;
+  padding: var(--bit-px-2) var(--bit-px-8) var(--bit-px-2) var(--bit-px-2);
+  font-size: var(--bit-fs-xs);
+}
+
+/* Auf schmalen Schirmen konkurriert der Picker mit der Marke -
+   dort bleibt nur das Kuerzel uebrig. */
+@media (max-width: 479.98px) {
+  .lang-picker select {
+    max-width: 92px;
+  }
+}
+
+/* ---- Hero ---------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(var(--bit-px) * 20) calc(var(--bit-px) * 16);
+  text-align: center;
+  color: var(--bit-c-paper);
+}
+
+.hero__title {
+  font-size: clamp(28px, 7vw, 68px);
+  line-height: 1.15;
+  margin-bottom: var(--bit-px-6);
+  color: var(--bit-c-cloud);
+  text-shadow:
+    var(--bit-px) var(--bit-px) 0 var(--bit-c-red),
+    var(--bit-px-2) var(--bit-px-2) 0 var(--bit-c-void);
+}
+
+.hero__sub {
+  max-width: 620px;
+  margin: 0 auto var(--bit-px-8);
+  font-size: var(--bit-fs);
+  line-height: 2;
+  color: #cfc9e8;
+}
+
+/* Bodenlinie aus abwechselnden Bloecken - der Horizont der Startseite. */
+.hero__ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--bit-px-6);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--bit-c-forest) 0,
+    var(--bit-c-forest) var(--bit-px-6),
+    var(--bit-c-green) var(--bit-px-6),
+    var(--bit-c-green) calc(var(--bit-px) * 12)
+  );
+  border-top: var(--bit-px) solid var(--bit-c-void);
+}
+
+/* Schwebende Icons im Hintergrund. */
+.hero__deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero__deco .bit-icon {
+  position: absolute;
+  animation: bit-float 2.4s steps(2, end) infinite;
+}
+
+.hero__deco .bit-icon:nth-child(1) { top: 18%; left: 8%;  color: var(--bit-c-gold); animation-delay: 0s; }
+.hero__deco .bit-icon:nth-child(2) { top: 62%; left: 14%; color: var(--bit-c-teal); animation-delay: .4s; }
+.hero__deco .bit-icon:nth-child(3) { top: 26%; right: 11%; color: var(--bit-c-pink); animation-delay: .8s; }
+.hero__deco .bit-icon:nth-child(4) { top: 68%; right: 7%;  color: var(--bit-c-lime); animation-delay: 1.2s; }
+
+@media (max-width: 767.98px) {
+  .hero__deco { display: none; }
+}
+
+/* ==========================================================================
+   Schaukasten der Startseite
+   ========================================================================== */
+
+/* ==========================================================================
+   BLOECKE
+   Fertige Bildschirme aus Bitstrap-Komponenten. Jeder Block sitzt in
+   einem Fensterrahmen, damit klar ist: das ist eine Oberflaeche, kein
+   Ausschnitt aus der Seite selbst.
+   ========================================================================== */
+.block {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.block__window {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bit-bg);
+}
+
+/* Titelleiste des Fensterrahmens. */
+.block__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--bit-px-2);
+  padding: var(--bit-px-2) var(--bit-px-3);
+  background-color: var(--bit-dark);
+  color: var(--bit-dark-fg);
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.block__dots {
+  display: inline-flex;
+  gap: var(--bit-px);
+  flex: 0 0 auto;
+}
+
+.block__dots i {
+  width: var(--bit-px-2);
+  height: var(--bit-px-2);
+  background-color: currentColor;
+  opacity: 0.5;
+}
+
+.block__screen {
+  flex: 1 1 auto;
+  padding: var(--bit-px-4);
+  overflow-x: auto;
+}
+
+/* Fussnote: welche Komponenten stecken drin. */
+.block__uses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bit-px);
+  margin-top: var(--bit-px-3);
+}
+
+.block__uses code {
+  font-size: 8px;
+  background-color: var(--bit-surface-alt);
+  box-shadow: none;
+  padding: 0 var(--bit-px);
+}
+
+/* Zweispaltig: Code links, Ergebnis rechts. */
+.pair {
+  display: grid;
+  gap: var(--bit-gutter);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.pair pre {
+  margin: 0;
+  max-height: 420px;
+  overflow: auto;
+}
+
+/* Sprungleiste. Bleibt unter der Kopfzeile kleben und scrollt bei vielen
+   Abschnitten seitlich, statt drei Zeilen hoch zu werden. */
+.jump {
+  position: sticky;
+  top: calc(var(--bit-px) * 14);
+  z-index: 50;
+  background-color: var(--bit-surface);
+  border-bottom: var(--bit-px) solid var(--bit-border);
+}
+
+.jump__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--bit-px-2);
+  padding-block: var(--bit-px-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.jump__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.jump__label {
+  flex: 0 0 auto;
+  font-size: 8px;
+  color: var(--bit-muted);
+  text-transform: uppercase;
+  padding-right: var(--bit-px-2);
+}
+
+/* Die Links bleiben in EINER Zeile und scrollen seitlich. Ohne nowrap
+   waechst die klebende Leiste auf schmalen Schirmen auf mehrere hundert
+   Pixel Hoehe und verdeckt den halben Bildschirm. */
+[data-jump-nav] {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--bit-px);
+}
+
+.jump__link {
+  flex: 0 0 auto;
+  padding: var(--bit-px) var(--bit-px-2);
+  color: var(--bit-text);
+  text-decoration: none;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.jump__link:hover {
+  background-color: var(--bit-primary);
+  color: var(--bit-primary-fg);
+}
+
+/* Abschnitte muessen unter Kopfzeile UND Sprungleiste einrasten. */
+main section[id] {
+  scroll-margin-top: calc(var(--bit-px) * 26);
+}
+
+/* Abschnittskopf: Ueberschrift plus einordnender Satz. */
+.sec-head {
+  max-width: 640px;
+  margin: 0 auto var(--bit-px-8);
+  text-align: center;
+}
+
+.sec-head h2 {
+  margin-bottom: var(--bit-px-3);
+}
+
+.sec-head p {
+  margin: 0;
+  font-size: var(--bit-fs-xs);
+  line-height: 2;
+  color: var(--bit-muted);
+}
+
+/* Raster aus gleich hohen Demo-Kacheln. Die Mindestbreite ist grosszuegig,
+   damit Pixelschrift in den Kacheln nicht umbricht. */
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--bit-gutter);
+  align-items: start;
+}
+
+.showcase--wide {
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
+
+@media (max-width: 520px) {
+  .showcase,
+  .showcase--wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Eine einzelne Kachel: Titelzeile plus Inhalt. */
+.tile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bit-surface);
+}
+
+.tile__head {
+  padding: var(--bit-px-2) var(--bit-px-4);
+  border-bottom: var(--bit-px) solid var(--bit-border);
+  font-size: var(--bit-fs-xs);
+  color: var(--bit-muted);
+  text-transform: uppercase;
+}
+
+.tile__body {
+  flex: 1 1 auto;
+  padding: var(--bit-px-4);
+  /* Demos duerfen nie die Kachel sprengen. */
+  overflow-x: auto;
+}
+
+.tile--span2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  .tile--span2 {
+    grid-column: span 1;
+  }
+}
+
+/* Kennzahlen im Hero. */
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--bit-px-6);
+  margin-top: var(--bit-px-8);
+}
+
+.hero__stat {
+  text-align: center;
+}
+
+.hero__stat b {
+  display: block;
+  font-size: var(--bit-h4);
+  font-weight: 400;
+  color: var(--bit-c-gold);
+}
+
+.hero__stat span {
+  font-size: 8px;
+  color: #cfc9e8;
+  text-transform: uppercase;
+}
+
+/* Abschlussaufruf. */
+.cta {
+  padding-block: calc(var(--bit-px) * 14);
+  text-align: center;
+  color: var(--bit-c-paper);
+}
+
+.cta h2 {
+  color: var(--bit-c-cloud);
+  text-shadow: var(--bit-px) var(--bit-px) 0 var(--bit-c-red);
+}
+
+/* ---- Docs-Layout --------------------------------------------------------- */
+.docs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bit-px-8);
+  align-items: start;
+  padding-block: var(--bit-px-8);
+}
+
+@media (min-width: 1024px) {
+  .docs {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: calc(var(--bit-px) * 12);
+  }
+}
+
+.docs__nav {
+  font-size: var(--bit-fs-sm);
+}
+
+@media (min-width: 1024px) {
+  .docs__nav {
+    position: sticky;
+    top: calc(var(--bit-px) * 22);
+    max-height: calc(100vh - var(--bit-px) * 26);
+    overflow-y: auto;
+  }
+}
+
+.docs__nav h4 {
+  margin: var(--bit-px-5) 0 var(--bit-px-2);
+  font-size: var(--bit-fs-xs);
+  color: var(--bit-muted);
+  text-transform: uppercase;
+}
+
+.docs__nav h4:first-child { margin-top: 0; }
+
+.docs__nav a {
+  display: block;
+  padding: var(--bit-px) var(--bit-px-2);
+  color: var(--bit-text);
+  text-decoration: none;
+  font-size: var(--bit-fs-xs);
+  line-height: 1.9;
+}
+
+.docs__nav a:hover {
+  background-color: var(--bit-surface-alt);
+}
+
+.docs__nav a.is-active {
+  background-color: var(--bit-primary);
+  color: var(--bit-primary-fg);
+}
+
+/* Inhaltsspalte darf nie horizontal ueberlaufen. */
+.docs__main {
+  min-width: 0;
+}
+
+.docs__main section {
+  margin-bottom: calc(var(--bit-px) * 14);
+  scroll-margin-top: calc(var(--bit-px) * 24);
+}
+
+.docs__main h2 {
+  padding-bottom: var(--bit-px-3);
+  border-bottom: var(--bit-px) solid var(--bit-border);
+}
+
+.docs__main h3 {
+  margin-top: var(--bit-px-8);
+}
+
+/* ---- Beispielblock -------------------------------------------------------
+   Vorschau oben, der Quelltext darunter wird von docs.js aus der Vorschau
+   selbst erzeugt - so koennen Beispiel und Code nie auseinanderlaufen. */
+.doc-demo {
+  margin-bottom: var(--bit-px-6);
+}
+
+.doc-demo__preview {
+  padding: var(--bit-px-6);
+  background-color: var(--bit-surface);
+  background-image: repeating-conic-gradient(
+    rgba(128, 128, 128, 0.09) 0% 25%,
+    transparent 0% 50%
+  );
+  background-size: var(--bit-px-4) var(--bit-px-4);
+  box-shadow:
+    0 calc(-1 * var(--bit-px)) 0 0 var(--bit-border),
+    0 var(--bit-px) 0 0 var(--bit-border),
+    calc(-1 * var(--bit-px)) 0 0 0 var(--bit-border),
+    var(--bit-px) 0 0 0 var(--bit-border);
+  overflow-x: auto;
+}
+
+.doc-demo__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bit-px-3);
+  margin-top: var(--bit-px-2);
+}
+
+.doc-demo__code {
+  margin: 0;
+  max-height: 380px;
+  overflow: auto;
+}
+
+.doc-demo__code[hidden] { display: none; }
+
+/* Syntaxfarben */
+.tok-tag  { color: #ff7b9c; }
+.tok-attr { color: #ffd93d; }
+.tok-str  { color: #a7f070; }
+.tok-com  { color: #7d7a8c; }
+
+/* ---- Feature-Karten ------------------------------------------------------ */
+.feature {
+  height: 100%;
+}
+
+.feature .bit-icon {
+  color: var(--bit-primary);
+  margin-bottom: var(--bit-px-3);
+}
+
+/* ---- Farbfelder ---------------------------------------------------------- */
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bit-px);
+  font-size: var(--bit-fs-xs);
+}
+
+.swatch__chip {
+  height: calc(var(--bit-px) * 14);
+  box-shadow:
+    0 calc(-1 * var(--bit-px)) 0 0 var(--bit-border),
+    0 var(--bit-px) 0 0 var(--bit-border),
+    calc(-1 * var(--bit-px)) 0 0 0 var(--bit-border),
+    var(--bit-px) 0 0 0 var(--bit-border);
+}
+
+/* ---- Icon-Galerie -------------------------------------------------------- */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: var(--bit-px-3);
+}
+
+.icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--bit-px-2);
+  padding: var(--bit-px-4) var(--bit-px-2);
+  background-color: var(--bit-surface);
+  font-size: 8px;
+  text-align: center;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.icon-cell:hover {
+  background-color: var(--bit-primary);
+  color: var(--bit-primary-fg);
+}
+
+/* ---- Theme-Vorschau ------------------------------------------------------ */
+.theme-preview {
+  padding: var(--bit-px-5);
+  background-color: var(--bit-bg);
+  color: var(--bit-text);
+}
+
+/* ---- Fusszeile ----------------------------------------------------------- */
+.site-footer {
+  margin-top: calc(var(--bit-px) * 12);
+  padding-block: var(--bit-px-8);
+  border-top: var(--bit-px) solid var(--bit-border);
+  font-size: var(--bit-fs-xs);
+  color: var(--bit-muted);
+}
+
+/* ---- Kopierbarer Installationsblock -------------------------------------- */
+.install {
+  position: relative;
+}
+
+.install pre {
+  padding-right: calc(var(--bit-px) * 26);
+}
+
+.install .bit-btn {
+  position: absolute;
+  top: var(--bit-px-2);
+  right: var(--bit-px-2);
+}
+
+/* Tabelle der CSS-Variablen */
+.var-table code {
+  font-size: 10px;
+  white-space: nowrap;
+}

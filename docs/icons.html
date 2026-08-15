@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icons · Bitstrap</title>
+<meta name="description" content="26 Pixel-Icons als CSS-Masken: faerbbar ueber color, skalierbar ueber eine Variable, ohne zusaetzliche Requests.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../vendor/bitstrap.css">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="getting-started.html" data-i18n="nav.docs">Doku</a></li>
+        <li><a class="bit-navbar__link" href="components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="themes.html" data-i18n="nav.themes">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="bit-container">
+  <div class="docs">
+    <aside class="docs__nav" data-docs-nav aria-label="Dokumentation"></aside>
+
+    <main class="docs__main" id="main">
+      <h1>Icons</h1>
+      <p class="bit-lead">
+        26 Icons, jedes als 8&times;8-Raster gezeichnet. Klick auf ein Icon
+        kopiert sein Markup.
+      </p>
+
+      <section id="galerie">
+        <h2>Alle Icons</h2>
+        <div class="icon-grid" data-icon-grid></div>
+      </section>
+
+      <section id="verwendung">
+        <h2>Verwendung</h2>
+        <p>Ein leeres <code>span</code> mit zwei Klassen - mehr nicht:</p>
+        <pre><code>&lt;span class="bit-icon bit-icon--heart"&gt;&lt;/span&gt;</code></pre>
+
+        <h3>Groessen</h3>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster bit-items-center">
+              <span class="bit-icon bit-icon--xs bit-icon--star"></span>
+              <span class="bit-icon bit-icon--sm bit-icon--star"></span>
+              <span class="bit-icon bit-icon--star"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--star"></span>
+              <span class="bit-icon bit-icon--xl bit-icon--star"></span>
+            </div>
+          </div>
+        </div>
+
+        <h3>Farben</h3>
+        <p>
+          Icons uebernehmen die aktuelle Textfarbe. Es gibt also keine
+          gesonderte Icon-Farbe zu pflegen:
+        </p>
+        <div class="doc-demo">
+          <div class="doc-demo__preview">
+            <div class="bit-cluster bit-items-center">
+              <span class="bit-icon bit-icon--lg bit-icon--heart bit-text-danger"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--coin bit-text-gold"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--gem bit-text-teal"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--potion bit-text-purple"></span>
+              <span class="bit-icon bit-icon--lg bit-icon--invader bit-rainbow"></span>
+            </div>
+          </div>
+        </div>
+
+        <h3>Freie Groesse</h3>
+        <pre><code>&lt;span class="bit-icon bit-icon--sword"
+      style="--bit-icon-size: 96px"&gt;&lt;/span&gt;</code></pre>
+
+        <div class="bit-alert bit-alert--info">
+          <span class="bit-icon bit-icon--sm bit-icon--bolt"></span>
+          <div class="bit-alert__body">
+            <p class="bit-text-xs bit-m-0">
+              Waehle Groessen als Vielfaches von 8, dann trifft jedes
+              Rasterpixel exakt auf ein Bildschirmpixel und die Kanten
+              bleiben scharf.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="eigene">
+        <h2>Eigene Icons</h2>
+        <p>
+          Icons entstehen in <code>build/icons.mjs</code> als Zeichenraster.
+          Ein neues Icon ist acht Zeilen Text - der Build erzeugt daraus die
+          CSS-Regel:
+        </p>
+
+        <pre><code>// build/icons.mjs
+export const ICONS = {
+  krone: [
+    "........",
+    "#..##..#",
+    "#.####.#",
+    "########",
+    "########",
+    ".######.",
+    "........",
+    "........",
+  ],
+};</code></pre>
+
+        <p>Danach neu bauen:</p>
+        <pre><code>node build/build.mjs</code></pre>
+
+        <p>
+          Und benutzen als <code>.bit-icon--krone</code>. Die Pfeil-Icons
+          werden uebrigens aus einem einzigen Raster erzeugt und dreimal
+          gedreht - dieselbe Technik steht dir offen.
+        </p>
+      </section>
+
+      <section id="technik">
+        <h2>Wie es funktioniert</h2>
+        <p>
+          Jedes Raster wird zu einem SVG, in dem zusammenhaengende Pixel
+          einer Zeile zu einem Rechteck verschmelzen. Aus 64 Einzelpixeln
+          werden so meist unter 14 Rechtecke. Das SVG landet als Data-URI
+          in einer CSS-Maske:
+        </p>
+
+        <pre><code>.bit-icon--heart {
+  mask-image: url("data:image/svg+xml,...");
+}
+.bit-icon {
+  background-color: currentColor;
+  mask-size: 100% 100%;
+}</code></pre>
+
+        <p>
+          Die Maske bestimmt die Form, die Hintergrundfarbe die Farbe.
+          Daher faerbt <code>color</code> das Icon - und es gibt weder
+          Schriftdatei noch Sprite-Sheet noch einen zusaetzlichen Request.
+        </p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="../vendor/bitstrap.js"></script>
+<script src="../vendor/bitstrap-locales.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/docs.js"></script>
+</body>
+</html>

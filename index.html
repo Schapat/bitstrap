@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitstrap · Das 8-Bit-CSS-Framework</title>
+<meta name="description" content="Bitstrap ist ein CSS-Framework im 8-Bit-Pixel-Art-Stil. Fertige Bloecke, 75 Bausteine, Datepicker und Themes - ohne Abhaengigkeiten, 17 KB gzip.">
+
+<!-- Pixelschrift. Faellt ohne Netz sauber auf Monospace zurueck. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="vendor/bitstrap.css">
+<link rel="stylesheet" href="assets/docs.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%231f1d36'/%3E%3Crect x='1' y='1' width='2' height='1' fill='%23e43b44'/%3E%3Crect x='5' y='1' width='2' height='1' fill='%23e43b44'/%3E%3Crect y='2' width='8' height='2' fill='%23e43b44'/%3E%3Crect x='1' y='4' width='6' height='1' fill='%23e43b44'/%3E%3Crect x='2' y='5' width='4' height='1' fill='%23e43b44'/%3E%3Crect x='3' y='6' width='2' height='1' fill='%23e43b44'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<a href="#main" class="bit-skip-link" data-i18n="skip">Zum Inhalt springen</a>
+
+<!-- ══════════════════ KOPFZEILE ══════════════════ -->
+<header class="site-header">
+  <div class="bit-container">
+    <nav class="bit-navbar__inner" aria-label="Hauptnavigation">
+      <a href="index.html" class="site-logo">
+        <span class="bit-icon bit-icon--sm bit-icon--invader"></span>
+        <span>BIT<b>STRAP</b></span>
+      </a>
+
+      <ul class="bit-navbar__menu bit-hide-mobile">
+        <li><a class="bit-navbar__link" href="docs/getting-started.html" data-i18n="nav.docs">Doku</a></li>
+        <li><a class="bit-navbar__link" href="docs/components.html" data-i18n="nav.components">Komponenten</a></li>
+        <li><a class="bit-navbar__link" href="docs/widgets.html" data-i18n="nav.widgets">Widgets</a></li>
+      </ul>
+      <!-- Theme- und Sprachauswahl haengt i18n.js hier ein. -->
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero bit-bg-stars bit-crt bit-crt--vignette">
+  <div class="hero__deco" aria-hidden="true">
+    <span class="bit-icon bit-icon--lg bit-icon--coin"></span>
+    <span class="bit-icon bit-icon--star"></span>
+    <span class="bit-icon bit-icon--lg bit-icon--heart"></span>
+    <span class="bit-icon bit-icon--gem"></span>
+  </div>
+
+  <div class="bit-container bit-relative">
+    <p class="bit-mb-6"><span class="bit-badge bit-badge--warning" data-i18n="hero.badge">v1.0 · MIT-Lizenz</span></p>
+
+    <h1 class="hero__title">
+      <span data-i18n="hero.title1">DAS 8-BIT</span><br>
+      <span data-i18n="hero.title2">CSS-FRAMEWORK</span>
+    </h1>
+
+    <p class="hero__sub" data-i18n="hero.sub">
+      Ueber 50 Komponenten im Pixel-Art-Stil - vom Button bis zum Datepicker.
+    </p>
+
+    <div class="bit-cluster bit-justify-center bit-gap-3">
+      <a href="#bloecke" class="bit-btn bit-btn--lg bit-btn--primary bit-shadow" data-i18n="p.explore">Bloecke ansehen</a>
+      <a href="docs/getting-started.html" class="bit-btn bit-btn--lg bit-btn--dark bit-shadow" data-i18n="hero.cta2">Doku lesen</a>
+    </div>
+
+    <div class="hero__stats">
+      <span class="hero__stat"><b data-bit-count="75">0</b><span data-i18n="p.count">Bausteine</span></span>
+      <span class="hero__stat"><b>17</b><span data-i18n="hero.stat.size">KB gzip</span></span>
+      <span class="hero__stat"><b>0</b><span data-i18n="hero.stat.deps">Abhaengigkeiten</span></span>
+      <span class="hero__stat"><b>6</b><span data-i18n="nav.themes">Themes</span></span>
+    </div>
+
+    <p class="bit-mt-8 bit-text-xs" style="color:#8b93af" data-i18n="hero.tip">
+      Alles auf dieser Seite ist echtes Bitstrap - kein einziger Screenshot.
+    </p>
+  </div>
+
+  <div class="hero__ground" aria-hidden="true"></div>
+</section>
+
+<!-- ══════════════════ SPRUNGLEISTE ══════════════════ -->
+<div class="jump">
+  <div class="bit-container">
+    <div class="jump__inner">
+      <span class="jump__label" data-i18n="jump.label">Direkt zu</span>
+      <nav data-jump-nav aria-label="Abschnitte"></nav>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ EINBINDEN ══════════════════ -->
+<section class="bit-section" id="einbinden">
+  <div class="bit-container bit-container--narrow">
+    <div class="sec-head">
+      <h2 data-i18n="p.embed">Einbinden</h2>
+      <p data-i18n="p.embed.sub">Drei Wege, je nach Projekt.</p>
+    </div>
+
+    <div class="bit-tabs">
+      <ul class="bit-tabs__list">
+        <li><button class="bit-tabs__tab is-active" data-bit-toggle="tab" data-bit-target="#ins-file" data-i18n="p.embed.file">Datei</button></li>
+        <li><button class="bit-tabs__tab" data-bit-toggle="tab" data-bit-target="#ins-npm" data-i18n="p.embed.npm">npm</button></li>
+        <li><button class="bit-tabs__tab" data-bit-toggle="tab" data-bit-target="#ins-src" data-i18n="p.embed.src">Quellen</button></li>
+      </ul>
+
+      <div class="bit-tabs__panel bit-frame" id="ins-file">
+        <p class="bit-text-xs bit-muted bit-mb-3" data-i18n="p.embed.file.note">Zwei Dateien, kein Build.</p>
+        <div class="install">
+          <pre id="snip-file">&lt;link rel="stylesheet" href="bitstrap.min.css"&gt;
+&lt;script src="bitstrap.min.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- optional --&gt;
+&lt;script src="bitstrap-ui.min.js" defer&gt;&lt;/script&gt;
+&lt;script src="bitstrap-forms.min.js" defer&gt;&lt;/script&gt;</pre>
+          <button class="bit-btn bit-btn--xs" data-copy="#snip-file" data-i18n="install.copy">Kopieren</button>
+        </div>
+      </div>
+
+      <div class="bit-tabs__panel bit-frame" id="ins-npm" hidden>
+        <p class="bit-text-xs bit-muted bit-mb-3" data-i18n="p.embed.npm.note">Fuer Projekte mit Bundler.</p>
+        <div class="install">
+          <pre id="snip-npm">npm install bitstrap
+
+import "bitstrap/css";
+import "bitstrap";
+import "bitstrap/ui";      // Drawer, Stepper, Tabellen
+import "bitstrap/forms";   // Datepicker, Combobox</pre>
+          <button class="bit-btn bit-btn--xs" data-copy="#snip-npm" data-i18n="install.copy">Kopieren</button>
+        </div>
+      </div>
+
+      <div class="bit-tabs__panel bit-frame" id="ins-src" hidden>
+        <p class="bit-text-xs bit-muted bit-mb-3" data-i18n="p.embed.src.note">Nur einbinden, was gebraucht wird.</p>
+        <div class="install">
+          <pre id="snip-src">@import "bitstrap/src/00-tokens.css";   /* immer zuerst */
+@import "bitstrap/src/01-base.css";
+@import "bitstrap/src/04-buttons.css";
+@import "bitstrap/src/06-components.css";</pre>
+          <button class="bit-btn bit-btn--xs" data-copy="#snip-src" data-i18n="install.copy">Kopieren</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ERSTE SEITE ══════════════════ -->
+<section class="bit-section" id="erste-seite" style="background-color:var(--bit-surface-alt)">
+  <div class="bit-container">
+    <div class="sec-head">
+      <h2 data-i18n="p.first">Die erste Seite</h2>
+      <p data-i18n="p.first.sub">Links der Quelltext, rechts das Ergebnis.</p>
+    </div>
+
+    <div class="pair">
+      <pre><code>&lt;div class="bit-container bit-section"&gt;
+  &lt;h1&gt;Hallo Welt&lt;/h1&gt;
+
+  &lt;div class="bit-card bit-shadow"&gt;
+    &lt;div class="bit-card__header"&gt;
+      Neues Projekt
+    &lt;/div&gt;
+    &lt;div class="bit-card__body"&gt;
+      &lt;div class="bit-field"&gt;
+        &lt;label class="bit-label"&gt;Name&lt;/label&gt;
+        &lt;input class="bit-input" type="text"&gt;
+      &lt;/div&gt;
+      &lt;label class="bit-check"&gt;
+        &lt;input type="checkbox" checked&gt;
+        &lt;span class="bit-check__box"&gt;&lt;/span&gt;
+        &lt;span&gt;Oeffentlich&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="bit-card__footer"&gt;
+      &lt;button class="bit-btn bit-btn--primary"&gt;
+        Anlegen
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <div class="block__window bit-frame">
+        <div class="block__bar">
+          <span class="block__dots"><i></i><i></i><i></i></span>
+          <span>index.html</span>
+        </div>
+        <div class="block__screen">
+          <h3 class="bit-h4">Hallo Welt</h3>
+          <div class="bit-card bit-shadow">
+            <div class="bit-card__header">Neues Projekt</div>
+            <div class="bit-card__body">
+              <div class="bit-field">
+                <label class="bit-label" for="fp-name" data-i18n="l.name">Name</label>
+                <input class="bit-input" id="fp-name" type="text">
+              </div>
+              <label class="bit-check">
+                <input type="checkbox" checked>
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label bit-text-xs">Oeffentlich</span>
+              </label>
+            </div>
+            <div class="bit-card__footer">
+              <button class="bit-btn bit-btn--primary">Anlegen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BLOECKE ══════════════════ -->
+<section class="bit-section" id="bloecke">
+  <div class="bit-container">
+    <div class="sec-head">
+      <h2 data-i18n="p.blocks">Bloecke</h2>
+      <p data-i18n="p.blocks.sub">Fertige Bildschirme aus Bitstrap-Komponenten.</p>
+    </div>
+
+    <div class="showcase showcase--wide">
+
+      <!-- ---------- ANMELDUNG ---------- -->
+      <article class="block">
+        <div class="block__window bit-frame bit-shadow">
+          <div class="block__bar">
+            <span class="block__dots"><i></i><i></i><i></i></span>
+            <span data-i18n="p.b.login">Anmeldung</span>
+          </div>
+          <div class="block__screen">
+            <div class="bit-text-center bit-mb-5">
+              <span class="bit-icon bit-icon--lg bit-icon--invader bit-text-primary"></span>
+              <h3 class="bit-h5 bit-mt-2 bit-mb-0" data-i18n="b.login.title">Willkommen zurueck</h3>
+            </div>
+            <form data-bit-validate>
+              <div class="bit-field">
+                <label class="bit-label bit-label--required" for="bl-mail" data-i18n="b.login.user">E-Mail</label>
+                <input class="bit-input" id="bl-mail" type="email" required placeholder="ada@example.com">
+              </div>
+              <div class="bit-field">
+                <label class="bit-label bit-label--required" for="bl-pw" data-i18n="b.login.pw">Passwort</label>
+                <input class="bit-input" id="bl-pw" type="password" required minlength="8">
+              </div>
+              <label class="bit-check bit-mb-4">
+                <input type="checkbox" checked>
+                <span class="bit-check__box"></span>
+                <span class="bit-check__label bit-text-xs" data-i18n="b.login.remember">Angemeldet bleiben</span>
+              </label>
+              <button class="bit-btn bit-btn--primary bit-btn--block" type="submit" data-i18n="b.login.submit">Anmelden</button>
+            </form>
+            <p class="bit-text-center bit-mt-4 bit-mb-0">
+              <a class="bit-text-xs" href="#bloecke" data-i18n="b.login.alt">Neu hier? Konto anlegen</a>
+            </p>
+          </div>
+        </div>
+        <div class="block__uses">
+          <code>.bit-card</code><code>.bit-field</code><code>.bit-input</code>
+          <code>.bit-check</code><code>.bit-btn--block</code><code>data-bit-validate</code>
+        </div>
+      </article>
+
+      <!-- ---------- DASHBOARD ---------- -->
+      <article class="block">
+        <div class="block__window bit-frame bit-shadow">
+          <div class="block__bar">
+            <span class="block__dots"><i></i><i></i><i></i></span>
+            <span data-i18n="p.b.dash">Dashboard</span>
+          </div>
+          <div class="block__screen">
+            <div class="bit-cluster bit-mb-4">
+              <span class="bit-segmented">
+                <input type="radio" name="bd" id="bd1" checked><label for="bd1" data-i18n="b.dash.today">Heute</label>
+                <input type="radio" name="bd" id="bd2"><label for="bd2" data-i18n="b.dash.week">Woche</label>
+                <input type="radio" name="bd" id="bd3"><label for="bd3" data-i18n="b.dash.month">Monat</label>
+              </span>
+              <span class="bit-avatar bit-avatar--sm">AB</span>
+            </div>
+
+            <div class="bit-tiles bit-mb-4" style="--bit-tile-min:130px">
+              <div class="bit-stat bit-frame bit-stat--accent">
+                <span class="bit-stat__label" data-i18n="l.visits">Besuche</span>
+                <span class="bit-stat__value" data-bit-count="8420">0</span>
+                <span class="bit-stat__delta bit-stat__delta--up">+12%</span>
+              </div>
+              <div class="bit-stat bit-frame">
+                <span class="bit-stat__label" data-i18n="l.errors">Fehlerrate</span>
+                <span class="bit-stat__value">0,4%</span>
+                <span class="bit-stat__delta bit-stat__delta--down">-2%</span>
+              </div>
+            </div>
+
+            <div class="bit-meter bit-frame bit-mb-4">
+              <div class="bit-meter__head">
+                <span data-i18n="l.storage">Speicher</span>
+                <span class="bit-meter__value">64%</span>
+              </div>
+              <span class="bit-meter__track"><span class="bit-meter__fill" style="width:64%"></span></span>
+            </div>
+
+            <div class="bit-table-wrap">
+              <table class="bit-table bit-table--striped bit-table--sortable" id="bd-table">
+                <thead>
+                  <tr>
+                    <th data-bit-sort="text" data-i18n="l.name">Name</th>
+                    <th data-bit-sort="number" data-i18n="l.points">Punkte</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Anna</td><td>128500</td></tr>
+                  <tr><td>Bjoern</td><td>96200</td></tr>
+                  <tr><td>Clara</td><td>181050</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="block__uses">
+          <code>.bit-stat</code><code>.bit-meter</code><code>.bit-segmented</code>
+          <code>.bit-table--sortable</code><code>.bit-avatar</code><code>data-bit-count</code>
+        </div>
+      </article>
+
+      <!-- ---------- PREISE ---------- -->
+      <article class="block">
+        <div class="block__window bit-frame bit-shadow">
+          <div class="block__bar">
+            <span class="block__dots"><i></i><i></i><i></i></span>
+            <span data-i18n="p.b.pricing">Preise</span>
+          </div>
+          <div class="block__screen">
+            <div class="bit-tiles" style="--bit-tile-min:130px">
+              <div class="bit-card">
+                <div class="bit-card__body bit-text-center">
+                  <p class="bit-text-xs bit-muted bit-mb-2" data-i18n="b.pricing.free">Kostenlos</p>
+                  <p class="bit-h4 bit-mb-1">0 &euro;</p>
+                  <p class="bit-text-xs bit-muted bit-mb-3" data-i18n="b.pricing.month">pro Monat</p>
+                  <button class="bit-btn bit-btn--sm bit-btn--block" data-i18n="b.pricing.choose">Waehlen</button>
+                </div>
+              </div>
+
+              <div class="bit-card bit-card--primary bit-shadow">
+                <div class="bit-card__header">
+                  <span data-i18n="b.pricing.pro">Pro</span>
+                  <span class="bit-badge bit-badge--primary" data-i18n="b.pricing.popular">Beliebt</span>
+                </div>
+                <div class="bit-card__body bit-text-center">
+                  <p class="bit-h4 bit-mb-1">9 &euro;</p>
+                  <p class="bit-text-xs bit-muted bit-mb-3" data-i18n="b.pricing.month">pro Monat</p>
+                  <button class="bit-btn bit-btn--sm bit-btn--primary bit-btn--block" data-i18n="b.pricing.choose">Waehlen</button>
+                </div>
+              </div>
+
+              <div class="bit-card">
+                <div class="bit-card__body bit-text-center">
+                  <p class="bit-text-xs bit-muted bit-mb-2" data-i18n="b.pricing.team">Team</p>
+                  <p class="bit-h4 bit-mb-1">29 &euro;</p>
+                  <p class="bit-text-xs bit-muted bit-mb-3" data-i18n="b.pricing.month">pro Monat</p>
+                  <button class="bit-btn bit-btn--sm bit-btn--block" data-i18n="b.pricing.choose">Waehlen</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block__uses">
+          <code>.bit-tiles</code><code>.bit-card--primary</code><code>.bit-badge</code>
+          <code>.bit-btn--block</code><code>.bit-shadow</code>
+        </div>
+      </article>
+
+      <!-- ---------- EINSTELLUNGEN ---------- -->
+      <article class="block">
+        <div class="block__window bit-frame bit-shadow">
+          <div class="block__bar">
+            <span class="block__dots"><i></i><i></i><i></i></span>
+            <span data-i18n="p.b.settings">Einstellungen</span>
+          </div>
+          <div class="block__screen">
+            <div class="bit-tabs">
+              <ul class="bit-tabs__list">
+                <li><button class="bit-tabs__tab is-active" data-bit-toggle="tab" data-bit-target="#se1" data-i18n="b.settings.profile">Profil</button></li>
+                <li><button class="bit-tabs__tab" data-bit-toggle="tab" data-bit-target="#se2" data-i18n="b.settings.notify">Benachrichtigungen</button></li>
+              </ul>
+
+              <div class="bit-tabs__panel bit-frame" id="se1">
+                <div class="bit-field">
+                  <label class="bit-label" for="se-name" data-i18n="l.name">Name</label>
+                  <input class="bit-input" id="se-name" type="text" value="Ada Lovelace">
+                </div>
+                <div class="bit-field">
+                  <label class="bit-label" for="se-tags" data-i18n="l.tags">Schlagworte</label>
+                  <div class="bit-tags">
+                    <input type="hidden" name="se-tags-v" value="css,retro">
+                    <input class="bit-tags__input" id="se-tags" type="text" placeholder="Enter">
+                  </div>
+                </div>
+                <button class="bit-btn bit-btn--sm bit-btn--primary" data-i18n="b.settings.save">Speichern</button>
+              </div>
+
+              <div class="bit-tabs__panel bit-frame" id="se2" hidden>
+                <label class="bit-switch bit-mb-3">
+                  <input type="checkbox" checked>
+                  <span class="bit-switch__track"></span>
+                  <span class="bit-text-xs" data-i18n="b.settings.mail">E-Mail bei Antworten</span>
+                </label>
+                <label class="bit-switch bit-mb-4">
+                  <input type="checkbox">
+                  <span class="bit-switch__track"></span>
+                  <span class="bit-text-xs" data-i18n="b.settings.digest">Woechentliche Zusammenfassung</span>
+                </label>
+                <div class="bit-alert bit-alert--danger bit-m-0">
+                  <span class="bit-icon bit-icon--sm bit-icon--skull"></span>
+                  <div class="bit-alert__body">
+                    <p class="bit-alert__title" data-i18n="b.settings.danger">Gefahrenzone</p>
+                    <button class="bit-btn bit-btn--xs bit-btn--danger bit-mt-2"
+                            data-bit-toggle="modal" data-bit-target="#m-del" data-i18n="b.settings.delete">Konto loeschen</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block__uses">
+          <code>.bit-tabs</code><code>.bit-switch</code><code>.bit-tags</code>
+          <code>.bit-alert--danger</code><code>data-bit-toggle</code>
+        </div>
+      </article>
+
+      <!-- ---------- BESTELLVORGANG ---------- -->
+      <article class="block">
+        <div class="block__window bit-frame bit-shadow">
+          <div class="block__bar">
+            <span class="block__dots"><i></i><i></i><i></i></span>
+            <span data-i18n="p.b.checkout">Bestellvorgang</span>
+          </div>
+          <div class="block__screen">
+            <div class="bit-stepper-host">
+              <ol class="bit-stepper">
+                <li class="bit-stepper__step" data-i18n="b.checkout.cart">Warenkorb</li>
+                <li class="bit-stepper__step" data-i18n="b.checkout.ship">Versand</li>
+                <li class="bit-stepper__step" data-i18n="b.checkout.pay">Zahlung</li>
+              </ol>
+
+              <div class="bit-step-panel">
+                <ul class="bit-list bit-frame bit-mb-4">
+                  <li class="bit-list__item">
+                    <span class="bit-cluster">
+                      <span class="bit-icon bit-icon--sm bit-icon--sword bit-text-gold"></span>
+                      <span class="bit-text-xs">Pixel-Schwert</span>
+                    </span>
+                    <span class="bit-badge">39 &euro;</span>
+                  </li>
+                  <li class="bit-list__item">
+                    <span class="bit-cluster">
+                      <span class="bit-icon bit-icon--sm bit-icon--potion bit-text-teal"></span>
+                      <span class="bit-text-xs">Heiltrank</span>
+                    </span>
+                    <span class="bit-badge">7 &euro;</span>
+                  </li>
+                </ul>
+                <div class="bit-split">
+                  <strong class="bit-text-sm" data-i18n="b.checkout.total">Gesamt</strong>
+                  <strong class="bit-text-sm bit-text-primary">46 &euro;</strong>
+                </div>
+              </div>
+
+              <div class="bit-step-panel" hidden>
+                <div class="bit-field">
+                  <label class="bit-label" for="ck-date" data-i18n="l.date">Datum</label>
+                  <div class="bit-datepicker">
+                    <input class="bit-input" id="ck-date" type="text" data-bit-datepicker>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bit-step-panel" hidden>
+                <span class="bit-otp">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="1">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="2">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="3">
+                  <input type="text" inputmode="numeric" maxlength="1" aria-label="4">
+                </span>
+              </div>
+
+              <div class="bit-cluster bit-mt-4">
+                <button class="bit-btn bit-btn--sm" data-bit-step="prev" data-i18n="l.prev">Zurueck</button>
+                <button class="bit-btn bit-btn--sm bit-btn--primary" data-bit-step="next" data-i18n="b.checkout.next">Weiter</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block__uses">
+          <code>.bit-stepper</code><code>.bit-list</code><code>.bit-datepicker</code>
+          <code>.bit-otp</code><code>data-bit-step</code>
+        </div>
+      </article>
+
+      <!-- ---------- PROFIL ---------- -->
+      <article class="block">
+        <div class="block__window bit-frame bit-shadow">
+          <div class="block__bar">
+            <span class="block__dots"><i></i><i></i><i></i></span>
+            <span data-i18n="p.b.profile">Profil</span>
+          </div>
+          <div class="block__screen">
+            <div class="bit-cluster bit-mb-4">
+              <span class="bit-avatar bit-avatar--lg">
+                <span class="bit-icon bit-icon--lg bit-icon--user"></span>
+              </span>
+              <span class="bit-flex-1">
+                <strong class="bit-text-sm bit-block">Ada Lovelace</strong>
+                <span class="bit-text-xs bit-muted">@ada &middot; Berlin</span>
+                <span class="bit-cluster bit-mt-2">
+                  <button class="bit-btn bit-btn--xs bit-btn--primary" data-i18n="b.profile.follow">Folgen</button>
+                  <button class="bit-btn bit-btn--xs" data-i18n="b.profile.msg">Nachricht</button>
+                </span>
+              </span>
+            </div>
+
+            <dl class="bit-dl bit-mb-4">
+              <dt>Repos</dt><dd>42</dd>
+              <dt>Sterne</dt><dd>1.284</dd>
+            </dl>
+
+            <ol class="bit-timeline">
+              <li class="bit-timeline__item bit-timeline__item--success">
+                <span class="bit-timeline__marker"></span>
+                <span class="bit-timeline__time">14:02</span>
+                <h4 class="bit-timeline__title">Release v1.0</h4>
+              </li>
+              <li class="bit-timeline__item">
+                <span class="bit-timeline__marker"></span>
+                <span class="bit-timeline__time">11:20</span>
+                <h4 class="bit-timeline__title">Pull Request #17</h4>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="block__uses">
+          <code>.bit-avatar--lg</code><code>.bit-dl</code><code>.bit-timeline</code>
+          <code>.bit-cluster</code>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ANPASSEN ══════════════════ -->
+<section class="bit-section" id="anpassen" style="background-color:var(--bit-surface-alt)">
+  <div class="bit-container">
+    <div class="sec-head">
+      <h2 data-i18n="p.theming">Anpassen</h2>
+      <p data-i18n="p.theming.sub">Oben rechts das Theme wechseln - die ganze Seite zieht mit.</p>
+    </div>
+
+    <div class="pair">
+      <div>
+        <pre><code>/* Ein eigenes Theme - nur Variablen */
+.bit-theme-meins {
+  --bit-bg:      #1a1c2c;
+  --bit-surface: #29366f;
+  --bit-text:    #f4f4f4;
+  --bit-border:  #f4f4f4;
+
+  --bit-primary:    #ef7d57;
+  --bit-primary-fg: #1a1c2c;
+  --bit-success:    #a7f070;
+  --bit-danger:     #b13e53;
+}
+
+/* Und die Groesse? Eine Variable. */
+:root { --bit-px: 6px; }</code></pre>
+        <p class="bit-text-xs bit-muted bit-mt-3" data-i18n="p.theming.note">
+          Ein Theme setzt ausschliesslich Farbvariablen.
+        </p>
+      </div>
+
+      <div class="block__window bit-frame">
+        <div class="block__bar">
+          <span class="block__dots"><i></i><i></i><i></i></span>
+          <span data-i18n="nav.themes">Themes</span>
+        </div>
+        <div class="block__screen">
+          <div class="bit-split bit-mb-4">
+            <strong class="bit-text-sm" data-i18n="themes.menu">MENUE</strong>
+            <span class="bit-badge bit-badge--primary">v1.0</span>
+          </div>
+          <div class="bit-progress bit-progress--segmented bit-mb-4">
+            <span class="bit-progress__bar" style="width:64%"></span>
+          </div>
+          <div class="bit-alert bit-alert--success bit-mb-4">
+            <span class="bit-icon bit-icon--sm bit-icon--check"></span>
+            <div class="bit-alert__body">
+              <p class="bit-text-xs bit-m-0" data-i18n="alert.saved.text">Uebernommen.</p>
+            </div>
+          </div>
+          <div class="bit-cluster">
+            <button class="bit-btn bit-btn--sm bit-btn--primary" data-i18n="themes.confirm">Speichern</button>
+            <button class="bit-btn bit-btn--sm" data-i18n="themes.back">Zurueck</button>
+            <span class="bit-spinner"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ MEHRSPRACHIG ══════════════════ -->
+<section class="bit-section" id="sprachen">
+  <div class="bit-container">
+    <div class="sec-head">
+      <h2 data-i18n="p.i18n">Mehrsprachig</h2>
+      <p data-i18n="p.i18n.sub">Sprache oben wechseln - der Kalender folgt mit.</p>
+    </div>
+
+    <div class="pair">
+      <pre><code>&lt;!-- Umschalter, ganz ohne eigenen Code --&gt;
+&lt;select data-bit-locale&gt;
+  &lt;option value="de"&gt;Deutsch&lt;/option&gt;
+  &lt;option value="en"&gt;English&lt;/option&gt;
+&lt;/select&gt;
+
+// Eigene Sprache - kein Build noetig
+Bitstrap.i18n.add("sv", {
+  dateFormat: "iso",
+  "datepicker.today": "Idag",
+  "datepicker.clear": "Rensa",
+  "combobox.empty":   "Inga traeffar"
+});</code></pre>
+
+      <div class="block__window bit-frame">
+        <div class="block__bar">
+          <span class="block__dots"><i></i><i></i><i></i></span>
+          <span data-i18n="l.date">Datum</span>
+        </div>
+        <div class="block__screen">
+          <div class="bit-field">
+            <label class="bit-label" for="i18n-date" data-i18n="l.date">Datum</label>
+            <div class="bit-datepicker">
+              <input class="bit-input" id="i18n-date" type="text" data-bit-datepicker>
+            </div>
+          </div>
+          <div class="bit-field bit-m-0">
+            <label class="bit-label" for="i18n-cb">Combobox</label>
+            <div class="bit-combobox">
+              <input class="bit-input" id="i18n-cb" type="text" data-bit-combobox
+                     data-bit-options='["Rust","Go","Zig"]' placeholder="xyz">
+              <ul class="bit-combobox__list" role="listbox"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BARRIEREFREI ══════════════════ -->
+<section class="bit-section" id="barrierefrei" style="background-color:var(--bit-surface-alt)">
+  <div class="bit-container bit-container--narrow">
+    <div class="sec-head">
+      <h2 data-i18n="p.a11y">Barrierefrei von Haus aus</h2>
+      <p data-i18n="p.a11y.sub">Retro-Optik ist keine Ausrede.</p>
+    </div>
+
+    <div class="bit-row">
+      <div class="bit-col bit-col-md-6">
+        <ul class="bit-ul bit-text-xs">
+          <li data-i18n="p.a11y.1">Sichtbarer Fokusring</li>
+          <li data-i18n="p.a11y.2">Dialoge fangen den Fokus</li>
+          <li data-i18n="p.a11y.3">Tabs mit Pfeiltasten</li>
+        </ul>
+      </div>
+      <div class="bit-col bit-col-md-6">
+        <ul class="bit-ul bit-text-xs">
+          <li data-i18n="p.a11y.4">prefers-reduced-motion</li>
+          <li data-i18n="p.a11y.5">Echtes input bleibt erhalten</li>
+          <li data-i18n="p.a11y.6">ARIA automatisch</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BAUKASTEN ══════════════════ -->
+<section class="bit-section" id="baukasten">
+  <div class="bit-container">
+    <div class="sec-head">
+      <h2 data-i18n="p.components">Der Baukasten</h2>
+      <p data-i18n="p.components.sub">75 Bausteine in neun Gruppen.</p>
+    </div>
+
+    <div class="bit-tiles" style="--bit-tile-min:200px">
+      <a class="bit-card bit-card--interactive" href="docs/components.html" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--pad bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.basics">Grundlagen</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Buttons, Badges, Karten, Avatare, Trenner</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/forms.html" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--check bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.forms">Formulare</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Input, Select, Checkbox, Radio, Switch, Range</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/widgets.html" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--gem bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.widgets">Widgets</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Datepicker, Combobox, Tags, OTP, Dropzone</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/components.html#meldungen" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--bolt bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.feedback">Rueckmeldung</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Alerts, Toasts, Progress, Meter, Skeleton</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/components.html#tabs" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--menu bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.nav">Navigation</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Navbar, Tabs, Accordion, Breadcrumb, Pagination</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/layouts.html#drawer" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--lock bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.overlays">Overlays</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Modal, Drawer, Popover, Tooltip, Dropdown</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/layouts.html#datatable" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--search bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.data">Daten</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Tabellen, Stats, Timeline, Tree, Leerzustand</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/layout.html" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--shield bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.layout">Layout</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Grid, Container, App-Shell, Stack, Cluster</p>
+        </div>
+      </a>
+      <a class="bit-card bit-card--interactive" href="docs/game-ui.html" style="text-decoration:none;color:inherit">
+        <div class="bit-card__body">
+          <span class="bit-icon bit-icon--sm bit-icon--heart bit-text-primary"></span>
+          <h3 class="bit-card__title bit-mt-2" data-i18n="g.game">Spiel-UI</h3>
+          <p class="bit-text-xs bit-muted bit-m-0">Inventar, HUD, Tastenhinweise, Banner</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="bit-text-center bit-mt-8">
+      <a href="docs/icons.html" class="bit-btn bit-btn--sm">
+        <span class="bit-icon bit-icon--xs bit-icon--star"></span>
+        <span data-i18n="nav.icons">Icons</span>
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════ FRAGEN ══════════════════ -->
+<section class="bit-section" id="fragen" style="background-color:var(--bit-surface-alt)">
+  <div class="bit-container bit-container--narrow">
+    <div class="sec-head"><h2 data-i18n="p.faq">Haeufige Fragen</h2></div>
+
+    <div class="bit-accordion bit-frame" data-bit-single>
+      <div class="bit-accordion__item is-open">
+        <button class="bit-accordion__trigger" data-bit-toggle="accordion" data-i18n="faq.q1">Build-Schritt?</button>
+        <div class="bit-accordion__panel">
+          <p class="bit-text-xs bit-m-0" data-i18n="faq.a1">Nein.</p>
+        </div>
+      </div>
+      <div class="bit-accordion__item">
+        <button class="bit-accordion__trigger" data-bit-toggle="accordion" data-i18n="faq.q2">Ohne JavaScript?</button>
+        <div class="bit-accordion__panel">
+          <p class="bit-text-xs bit-m-0" data-i18n="faq.a2">Groesstenteils.</p>
+        </div>
+      </div>
+      <div class="bit-accordion__item">
+        <button class="bit-accordion__trigger" data-bit-toggle="accordion" data-i18n="faq.q3">Kollidiert es?</button>
+        <div class="bit-accordion__panel">
+          <p class="bit-text-xs bit-m-0" data-i18n="faq.a3">Nein.</p>
+        </div>
+      </div>
+      <div class="bit-accordion__item">
+        <button class="bit-accordion__trigger" data-bit-toggle="accordion" data-i18n="faq.q4">Pixelschrift noetig?</button>
+        <div class="bit-accordion__panel">
+          <p class="bit-text-xs bit-m-0" data-i18n="faq.a4">Nein.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ABSCHLUSS ══════════════════ -->
+<section class="cta bit-bg-stars bit-crt">
+  <div class="bit-container">
+    <h2 data-i18n="cta.heading">Bereit?</h2>
+    <p class="bit-text-xs bit-mb-6" style="color:#cfc9e8" data-i18n="cta.text">
+      Alles auf dieser Seite steht in der Doku.
+    </p>
+    <a href="docs/getting-started.html" class="bit-btn bit-btn--lg bit-btn--primary bit-shadow" data-i18n="cta.button">Zur Dokumentation</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════ MODAL (aus dem Einstellungs-Block) ══════════════════ -->
+<div class="bit-modal" id="m-del">
+  <div class="bit-modal__backdrop"></div>
+  <div class="bit-modal__box">
+    <div class="bit-modal__header">
+      <h3 class="bit-modal__title" data-i18n="b.settings.delete">Konto loeschen</h3>
+      <button class="bit-btn bit-btn--bare bit-btn--xs" data-bit-dismiss="modal"
+              aria-label="Schliessen" data-i18n-attr="aria-label:modal.close">
+        <span class="bit-icon bit-icon--xs bit-icon--cross"></span>
+      </button>
+    </div>
+    <div class="bit-modal__body">
+      <p data-i18n="modal.text">Nicht gespeicherte Aenderungen gehen verloren.</p>
+    </div>
+    <div class="bit-modal__footer">
+      <button class="bit-btn bit-btn--sm" data-bit-dismiss="modal" data-i18n="modal.cancel">Abbrechen</button>
+      <button class="bit-btn bit-btn--sm bit-btn--danger" data-bit-dismiss="modal" id="del-btn" data-i18n="b.settings.delete">Konto loeschen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ FUSSZEILE ══════════════════ -->
+<footer class="site-footer">
+  <div class="bit-container bit-split">
+    <p class="bit-m-0">Bitstrap &copy; <span data-year>2026</span> · <span data-i18n="footer.license">MIT-Lizenz</span></p>
+    <p class="bit-m-0" data-i18n="footer.disclaimer">Nicht mit Nintendo oder anderen Herstellern verbunden.</p>
+  </div>
+</footer>
+
+<script src="vendor/bitstrap.js"></script>
+<script src="vendor/bitstrap-locales.js"></script>
+<script src="vendor/bitstrap-ui.js"></script>
+<script src="vendor/bitstrap-forms.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/docs.js"></script>
+<script>
+  /* Toast als Rueckmeldung des Loesch-Dialogs - holt seine Texte aus
+     der Website-Uebersetzung, damit er der Sprachwahl folgt. */
+  document.getElementById("del-btn").addEventListener("click", function () {
+    Bitstrap.toast({
+      title: BitstrapSite.t("toast.title"),
+      message: BitstrapSite.t("toast.text"),
+      variant: "danger",
+      icon: "skull"
+    });
+  });
+</script>
+</body>
+</html>
