@@ -17,6 +17,14 @@ body {
   border-bottom: var(--bit-px) solid var(--bit-border);
 }
 
+/* Marke, Navigation, Theme- und Sprachauswahl passen zwischen 768px und
+   etwa 900px nicht nebeneinander. Statt ueberzulaufen darf die Zeile
+   umbrechen - die Auswahlfelder rutschen dann unter die Marke. */
+.site-header .bit-navbar__inner {
+  flex-wrap: wrap;
+  row-gap: var(--bit-px-2);
+}
+
 .site-logo {
   display: inline-flex;
   align-items: center;

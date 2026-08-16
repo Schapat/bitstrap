@@ -4,3 +4,4 @@ node_modules/
 
 # vendor/ bleibt eingecheckt: die Seite laeuft dadurch ohne Build-Schritt
 # auf jedem statischen Hoster.
+.claude/
